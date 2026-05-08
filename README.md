@@ -9,6 +9,15 @@ python run.py score  pdf_output/  # score all extracted JSONs
 python run.py all   pdfs/
 ```
 
+## Files
+`parse.py` — PDF → structured JSON. The heading detector uses two independent signals: keyword matching (your full list, longest-first) and font size (only fires at 1.6× median, conservatively). The key bug fixed was that data cleaning and data-processing pipeline were being caught by the bare data catch-all before reaching the methods entries — fixed by ordering specific entries before the catch-all in BUCKET_MAP.
+
+`prompts.py` — All rubric logic lives here: four dimension definitions, scoring anchors, guiding questions, and the prompt builder that selects the most relevant bucket text per dimension.
+
+`score.py` — Calls Gemini 1.5 Flash twice per dimension (temp 0 + temp 0.3), flags divergent scores, handles rate limiting with retry/backoff.
+
+`run.py` — Entry point with three modes.
+
 ## Flow
 ```
 run.py
@@ -18,3 +27,11 @@ run.py
   → flags divergent scores
   → writes output JSON
 ```
+
+## Parsing Strategy
+1. Extract all text block by block, preserving page order
+2. Detect heading boundaries using fuzzy keyword matching against a list (normalised, case-insensitive, partial match)
+3. Assign each detected heading + its following body text as a raw section
+4.  map raw sections into the four logical buckets (abstract, data_description, methods, limitations) using a fixed mapping table
+5. Any text before the first detected heading goes into a preamble field (often contains the actual abstract even without a heading)
+6. Sections that don't map to any bucket are kept in a misc field so nothing is discarded
