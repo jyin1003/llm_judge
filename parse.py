@@ -1,7 +1,9 @@
 """
 parse.py
 --------
-Extracts structured text from a research paper PDF.
+Extracts structured text from a research paper PDF using the Adobe PDF
+Extract API, which uses a trained layout model to identify headings (H1–H6),
+paragraphs, lists, and other structural elements with high accuracy.
 
 Usage:
     python parse.py path/to/paper.pdf
@@ -10,218 +12,253 @@ Usage:
 Output:
     pdf_output/<stem>.json  for each PDF
 
-Strategy:
-    1. Extract all text spans block-by-block, preserving reading order.
-    2. Detect headings via keyword matching against a known list
-        (case-insensitive, normalised whitespace) plus font-size signal.
-    3. Assign each heading + its body text as a raw section.
-    4. Map raw sections into four logical buckets using fuzzy similarity
-        scoring against anchor phrases defined in config.py:
-            abstract         - research aims, context, study overview
-            data_description - dataset schema, provenance, variables
-            methods          - cleaning, transformations, preprocessing, analysis
-            limitations      - bias, gaps, constraints, transparency issues
-    5. Preamble (text before first heading) is preserved separately.
-    6. Headings that score below MATCH_THRESHOLD against all buckets go
-        into misc[] so nothing is discarded.
+Adobe returns a zip containing structuredData.json. Each element has:
+    Path  - e.g. "//Document/Sect/H1", "//Document/Sect/P"
+    Text  - the text content of that element
+
+Heading detection is purely structural (Path ends with /H1–/H6 or /Title),
+so no font-size heuristics or keyword matching are needed for detection.
+Bucket assignment still uses the fuzzy scorer from config.py.
 """
 
-import json, re, sys
+import io, json, logging, os, re, sys, zipfile
 from pathlib import Path
 
-import fitz  # pymupdf
+from dotenv import load_dotenv
 
-from config import BUCKET_ANCHORS, MATCH_THRESHOLD, HEADING_KEYWORDS_SORTED
+from config import BUCKET_ANCHORS, MATCH_THRESHOLD
 
-# Text normalisation
+load_dotenv()
+
+# Suppress Adobe SDK's verbose logging
+logging.getLogger("adobe.pdfservices").setLevel(logging.WARNING)
+
+# Lazy Adobe SDK import
+# Imported here so the error message is clear if the SDK isn't installed.
+
+def _get_adobe_sdk():
+    try:
+        from adobe.pdfservices.operation.auth.service_principal_credentials import (
+            ServicePrincipalCredentials,
+        )
+        from adobe.pdfservices.operation.exception.exceptions import (
+            ServiceApiException,
+            ServiceUsageException,
+            SdkException,
+        )
+        from adobe.pdfservices.operation.io.cloud_asset import CloudAsset
+        from adobe.pdfservices.operation.io.stream_asset import StreamAsset
+        from adobe.pdfservices.operation.pdf_services import PDFServices
+        from adobe.pdfservices.operation.pdf_services_media_type import PDFServicesMediaType
+        from adobe.pdfservices.operation.pdfjobs.jobs.extract_pdf_job import ExtractPDFJob
+        from adobe.pdfservices.operation.pdfjobs.params.extract_pdf.extract_element_type import (
+            ExtractElementType,
+        )
+        from adobe.pdfservices.operation.pdfjobs.params.extract_pdf.extract_pdf_params import (
+            ExtractPDFParams,
+        )
+        from adobe.pdfservices.operation.pdfjobs.result.extract_pdf_result import (
+            ExtractPDFResult,
+        )
+        return {
+            "ServicePrincipalCredentials": ServicePrincipalCredentials,
+            "ServiceApiException": ServiceApiException,
+            "ServiceUsageException": ServiceUsageException,
+            "SdkException": SdkException,
+            "PDFServices": PDFServices,
+            "PDFServicesMediaType": PDFServicesMediaType,
+            "ExtractPDFJob": ExtractPDFJob,
+            "ExtractElementType": ExtractElementType,
+            "ExtractPDFParams": ExtractPDFParams,
+            "ExtractPDFResult": ExtractPDFResult,
+        }
+    except ImportError:
+        print(
+            "\nAdobe PDF Services SDK not found.\n"
+            "Install it with:  pip install pdfservices-sdk\n"
+        )
+        sys.exit(1)
+
+
+# Heading path detection
+# Adobe encodes element type in the Path field, e.g.:
+#   "//Document/Sect/H1"      ← top-level heading
+#   "//Document/Sect/Sect/H2" ← sub-heading
+#   "//Document/Sect/P"       ← paragraph
+#   "//Document/Title"        ← document title
+
+_HEADING_SUFFIXES = ("/H1", "/H2", "/H3", "/H4", "/H5", "/H6", "/Title")
+
+def is_heading_element(path: str) -> bool:
+    """Return True if this Adobe element path represents a heading."""
+    return any(path.endswith(suffix) for suffix in _HEADING_SUFFIXES)
+
+def heading_level(path: str) -> int:
+    """Return heading level 1–6 (Title → 0) for sorting/display."""
+    if path.endswith("/Title"):
+        return 0
+    for i in range(1, 7):
+        if path.endswith(f"/H{i}"):
+            return i
+    return 99
+
+
+# ── Text normalisation and fuzzy bucket assignment ────────────────────────────
 
 def normalise(text: str) -> str:
     """Lowercase, collapse whitespace, strip punctuation for matching."""
     text = text.lower()
-    text = re.sub(r"[^\w\s-]", " ", text)  # keep hyphens, drop other punctuation
+    text = re.sub(r"[^\w\s-]", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
-
-# Fuzzy bucket assignment
-
-def _tokenise(text: str) -> set:
-    """Split normalised text into a set of word tokens."""
-    return set(text.split())
-
-
-# Common stopwords that inflate token overlap without adding meaning
 _STOP = {"and", "of", "the", "in", "to", "a", "an", "for", "with",
             "on", "at", "by", "from", "this", "that", "are", "is", "be"}
 
+def _tokenise(text: str) -> set:
+    return set(text.split())
 
 def _similarity(heading_norm: str, anchor_norm: str) -> float:
-    """
-    Compute a similarity score in [0, 1] between a heading and an anchor phrase.
-
-    Three signals combined:
-        1. Token overlap (Jaccard on content words): fraction of shared words.
-        2. Containment: whether the anchor is fully contained in the heading
-            or the heading is fully contained in the anchor (substring on
-            normalised strings).
-        3. Prefix bonus: heading starts with the anchor or vice versa.
-
-    Calibration:
-        - A single shared content word scores ~0.3-0.4
-        - Full substring containment scores ~0.8+
-        - Exact match scores 1.0
-    """
     if heading_norm == anchor_norm:
         return 1.0
-
     h_tokens = _tokenise(heading_norm)
     a_tokens = _tokenise(anchor_norm)
-
     if not h_tokens or not a_tokens:
         return 0.0
-
-    h_content = h_tokens - _STOP
-    a_content = a_tokens - _STOP
-
-    # Fall back to all tokens if content-word filtering empties a set
-    h_cmp = h_content if h_content else h_tokens
-    a_cmp = a_content if a_content else a_tokens
-
+    h_cmp = (h_tokens - _STOP) or h_tokens
+    a_cmp = (a_tokens - _STOP) or a_tokens
     intersection = len(h_cmp & a_cmp)
     union = len(h_cmp | a_cmp)
     jaccard = intersection / union if union else 0.0
-
     containment = 0.0
     if anchor_norm in heading_norm:
         containment = len(anchor_norm) / max(len(heading_norm), 1)
     elif heading_norm in anchor_norm:
         containment = len(heading_norm) / max(len(anchor_norm), 1)
-
     prefix = 0.2 if (
         heading_norm.startswith(anchor_norm) or anchor_norm.startswith(heading_norm)
     ) else 0.0
-
-    score = 0.4 * jaccard + 0.45 * containment + 0.15 * prefix
-    return min(score, 1.0)
-
+    return min(0.4 * jaccard + 0.45 * containment + 0.15 * prefix, 1.0)
 
 def assign_bucket(heading: str) -> tuple:
     """
-    Score a heading against all bucket anchors and return (bucket, score).
-    Returns ("misc", 0.0) if no bucket clears MATCH_THRESHOLD.
-
-    Takes the best-scoring anchor per bucket so a single strong match
-    is sufficient — no averaging that would dilute specific matches.
+    Fuzzy-score a heading against all bucket anchors.
+    Returns (bucket, score). Falls through to ("misc", score) if below threshold.
     """
     heading_norm = normalise(heading)
     best_bucket = "misc"
     best_score = 0.0
-
     for bucket, anchors in BUCKET_ANCHORS.items():
         bucket_best = max(
-            _similarity(heading_norm, normalise(anchor))
-            for anchor in anchors
+            _similarity(heading_norm, normalise(anchor)) for anchor in anchors
         )
         if bucket_best > best_score:
             best_score = bucket_best
             best_bucket = bucket
-
     if best_score < MATCH_THRESHOLD:
         return "misc", best_score
-
     return best_bucket, best_score
 
 
-# Heading detection
-
-def is_heading(line: str, font_size: float, median_font_size: float) -> bool:
+# Adobe API call
+def extract_structure_via_adobe(pdf_path: Path) -> list:
     """
-    Return True if this line looks like a section heading.
-    Two independent signals — either is sufficient:
-        1. Normalised line matches a keyword exactly or as a clean prefix.
-        2. Font is dramatically larger (1.6x) AND the line is short.
-    Hard 80-char cap keeps figure captions and body sentences out.
+    Upload PDF to Adobe Extract API and return the list of elements from
+    structuredData.json. Each element is a dict with at minimum:
+        Path (str), Text (str, may be absent for non-text elements)
     """
-    if not line.strip():
-        return False
+    client_id = os.getenv("PDF_SERVICES_CLIENT_ID")
+    client_secret = os.getenv("PDF_SERVICES_CLIENT_SECRET")
+    if not client_id or not client_secret:
+        raise RuntimeError(
+            "PDF_SERVICES_CLIENT_ID and PDF_SERVICES_CLIENT_SECRET must be set in .env\n"
+            "Get free credentials at: "
+            "https://acrobatservices.adobe.com/dc-integration-creation-app-cdn/main.html"
+        )
 
-    norm = normalise(line)
+    sdk = _get_adobe_sdk()
 
-    if len(norm) > 80:
-        return False
+    credentials = sdk["ServicePrincipalCredentials"](
+        client_id=client_id,
+        client_secret=client_secret,
+    )
+    pdf_services = sdk["PDFServices"](credentials=credentials)
 
-    # Signal 1: keyword match
-    for kw in HEADING_KEYWORDS_SORTED:
-        kw_norm = normalise(kw)
-        if norm == kw_norm or norm.startswith(kw_norm + " ") or norm.startswith(kw_norm + ":"):
-            return True
+    # Upload the PDF
+    with open(pdf_path, "rb") as f:
+        input_asset = pdf_services.upload(
+            input_stream=f,
+            mime_type=sdk["PDFServicesMediaType"].PDF.value,
+        )
 
-    # Signal 2: clearly oversized font, short line
-    if font_size >= median_font_size * 1.6 and len(norm) <= 50:
-        return True
+    # Configure extraction: text elements only (no table renditions needed)
+    # params = sdk["ExtractPDFParams"].builder().with_elements_to_extract(
+    #     [sdk["ExtractElementType"].TEXT]
+    # ).build()
+    
+    params = sdk["ExtractPDFParams"](
+        elements_to_extract=[sdk["ExtractElementType"].TEXT],
+    )
 
-    return False
+    job = sdk["ExtractPDFJob"](input_asset=input_asset, extract_pdf_params=params)
+    location = pdf_services.submit(job)
+
+    response = pdf_services.get_job_result(location, sdk["ExtractPDFResult"])
+    logging.info(f"Response: {response}")
+    
+    result_asset = response.get_result().get_resource()
+    stream_asset = pdf_services.get_content(result_asset)
+
+    # Parse the zip in memory
+    raw_zip_bytes = stream_asset.get_input_stream()
+
+    # Save raw output locally
+    raw_output_dir = Path("pdf_raw_output")
+    raw_output_dir.mkdir(parents=True, exist_ok=True)
+
+    name = output_name(pdf_path)
+    
+    # Save raw ZIP
+    zip_path = raw_output_dir / f"{name}_raw_output.zip"
+    with open(zip_path, "wb") as f:
+        f.write(raw_zip_bytes)
+
+    # Extract structuredData.json
+    with zipfile.ZipFile(io.BytesIO(raw_zip_bytes)) as zf:
+        with zf.open("structuredData.json") as jf:
+            data = json.load(jf)
+
+    json_path = raw_output_dir / f"{name}_structuredData.json"
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+    print(f"Saved ZIP to: {zip_path}")
+    print(f"Saved readable JSON to: {json_path}")
+    return data.get("elements", [])
 
 
-# PDF extraction
+# Segmentation
 
-def extract_spans(pdf_path: Path) -> list:
+def segment_elements(elements: list) -> tuple:
     """
-    Extract all text spans from the PDF preserving reading order.
-    Returns a list of dicts: {text, size, page}.
+    Walk Adobe elements in reading order, group body text under headings.
+    Returns (preamble_lines, sections) where each section is:
+      {heading, level, body, bucket, match_score}
     """
-    doc = fitz.open(str(pdf_path))
-    spans = []
-    for page_num, page in enumerate(doc, start=1):
-        blocks = page.get_text("dict", flags=fitz.TEXT_PRESERVE_WHITESPACE)["blocks"]
-        for block in blocks:
-            if block.get("type") != 0:
-                continue
-            for line in block.get("lines", []):
-                line_text_parts = []
-                max_size = 0.0
-                for span in line.get("spans", []):
-                    t = span.get("text", "")
-                    if t.strip():
-                        line_text_parts.append(t)
-                        max_size = max(max_size, span.get("size", 0.0))
-                line_text = " ".join(line_text_parts).strip()
-                if line_text:
-                    spans.append({"text": line_text, "size": max_size, "page": page_num})
-    doc.close()
-    return spans
-
-
-def compute_median_size(spans: list) -> float:
-    """Compute the median font size across all spans (body text baseline)."""
-    sizes = sorted(s["size"] for s in spans if s["size"] > 0)
-    if not sizes:
-        return 12.0
-    mid = len(sizes) // 2
-    return sizes[mid]
-
-
-# Segmentation and bucketing
-
-def segment_into_sections(spans: list) -> tuple:
-    """
-    Walk spans in order, detect heading boundaries, and group body text.
-    Returns (preamble_lines, sections) where each section dict contains:
-        heading, body, page_start, bucket, match_score
-    """
-    median_size = compute_median_size(spans)
     sections = []
-    current_heading = None
-    current_body_lines = []
-    current_page = 1
     preamble_lines = []
+    current_heading = None
+    current_level = None
+    current_body = []
     in_preamble = True
 
-    for span in spans:
-        text = span["text"].strip()
-        size = span["size"]
+    for el in elements:
+        path = el.get("Path", "")
+        text = el.get("Text", "").strip()
+        if not text:
+            continue
 
-        if is_heading(text, size, median_size):
+        if is_heading_element(path):
             if in_preamble:
                 in_preamble = False
             else:
@@ -229,29 +266,29 @@ def segment_into_sections(spans: list) -> tuple:
                     bucket, score = assign_bucket(current_heading)
                     sections.append({
                         "heading": current_heading,
-                        "body": " ".join(current_body_lines).strip(),
-                        "page_start": current_page,
+                        "level": current_level,
+                        "body": " ".join(current_body).strip(),
                         "bucket": bucket,
                         "match_score": round(score, 3),
                     })
-                elif current_body_lines:
-                    preamble_lines.extend(current_body_lines)
+                elif current_body:
+                    preamble_lines.extend(current_body)
             current_heading = text
-            current_body_lines = []
-            current_page = span["page"]
+            current_level = heading_level(path)
+            current_body = []
         else:
             if in_preamble:
                 preamble_lines.append(text)
             else:
-                current_body_lines.append(text)
+                current_body.append(text)
 
-    # Flush the final section
+    # Flush final section
     if current_heading is not None:
         bucket, score = assign_bucket(current_heading)
         sections.append({
             "heading": current_heading,
-            "body": " ".join(current_body_lines).strip(),
-            "page_start": current_page,
+            "level": current_level,
+            "body": " ".join(current_body).strip(),
             "bucket": bucket,
             "match_score": round(score, 3),
         })
@@ -261,15 +298,9 @@ def segment_into_sections(spans: list) -> tuple:
 
 def merge_into_buckets(preamble_lines: list, sections: list) -> dict:
     """
-    Combine all sections sharing a bucket into one text blob per bucket.
-    Preserves section order. Unmapped sections go into misc[].
+    Merge sections into four bucket text blobs. Unmapped → misc[].
     """
-    buckets = {
-        "abstract": [],
-        "data_description": [],
-        "methods": [],
-        "limitations": [],
-    }
+    buckets = {"abstract": [], "data_description": [], "methods": [], "limitations": []}
     misc = []
 
     for sec in sections:
@@ -281,7 +312,6 @@ def merge_into_buckets(preamble_lines: list, sections: list) -> dict:
             misc.append({
                 "heading": sec["heading"],
                 "body": sec["body"],
-                "page_start": sec["page_start"],
                 "match_score": sec["match_score"],
             })
 
@@ -297,23 +327,33 @@ def merge_into_buckets(preamble_lines: list, sections: list) -> dict:
     result["raw_sections"] = [
         {
             "heading": s["heading"],
+            "level": s["level"],
             "bucket": s["bucket"],
             "match_score": s["match_score"],
-            "page_start": s["page_start"],
         }
         for s in sections
     ]
-
     return result
 
 
+# Output naming
+
+def output_name(pdf_path: Path) -> str:
+    """Derive a safe output filename from the first 5 alphanumeric words of the stem."""
+    words = re.findall(r"[a-zA-Z0-9]+", pdf_path.stem.lower())
+    return "_".join(words[:5])
+
+
+# Main pipeline
+
 def parse_pdf(pdf_path: Path) -> dict:
-    """Full pipeline: PDF → structured dict."""
-    spans = extract_spans(pdf_path)
-    if not spans:
+    """Full pipeline: PDF → structured dict via Adobe Extract API."""
+    elements = extract_structure_via_adobe(pdf_path)
+
+    if not elements:
         return {
             "source_file": pdf_path.name,
-            "error": "No text extracted — PDF may be scanned/image-based.",
+            "error": "Adobe API returned no elements — PDF may be scanned/image-based.",
             "abstract": "",
             "data_description": "",
             "methods": "",
@@ -322,14 +362,13 @@ def parse_pdf(pdf_path: Path) -> dict:
             "raw_sections": [],
         }
 
-    preamble_lines, sections = segment_into_sections(spans)
+    preamble_lines, sections = segment_elements(elements)
     result = merge_into_buckets(preamble_lines, sections)
     result["source_file"] = pdf_path.name
-    result["page_count"] = fitz.open(str(pdf_path)).page_count
     result["sections_detected"] = len(sections)
 
     empty = [k for k in ("abstract", "data_description", "methods", "limitations")
-             if not result.get(k)]
+                if not result.get(k)]
     if empty:
         result["parse_warnings"] = [f"No content mapped to bucket: {e}" for e in empty]
 
@@ -354,14 +393,17 @@ def process_path(target: Path, output_dir: Path):
 
 def process_single(pdf_path: Path, output_dir: Path):
     print(f"Parsing: {pdf_path.name} ...", end=" ", flush=True)
-    result = parse_pdf(pdf_path)
-    words = re.findall(r"[a-zA-Z0-9]+", pdf_path.stem.lower())
-    output_name = "_".join(words[:5])
-    print("output name:", output_name)
-    out_path = output_dir / f"{output_name}.json"
+    try:
+        result = parse_pdf(pdf_path)
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return
+
+    name = output_name(pdf_path)
+    out_path = output_dir / f"{name}.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
-    
+
     warnings = result.get("parse_warnings", [])
     n_sections = result.get("sections_detected", 0)
     status = "⚠ " + "; ".join(warnings) if warnings else "✓"
