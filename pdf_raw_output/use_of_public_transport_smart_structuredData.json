@@ -1,0 +1,3626 @@
+{
+  "version": {
+    "json_export": "226",
+    "page_segmentation": "55",
+    "schema": "1.1.0",
+    "structure": "1.1184.0",
+    "table_structure": "5"
+  },
+  "extended_metadata": {
+    "ID_instance": "7C 85 C7 2E 8E BF B2 11 0A 00 EE 79 4C 4E 90 AF ",
+    "ID_permanent": "B9 41 E8 92 07 C3 E5 48 87 E3 65 E3 08 B6 02 CA ",
+    "has_acroform": false,
+    "has_embedded_files": false,
+    "is_XFA": false,
+    "is_certified": false,
+    "is_encrypted": false,
+    "is_digitally_signed": false,
+    "language": "en",
+    "page_count": 12,
+    "pdf_version": "1.7",
+    "pdfa_compliance_level": "",
+    "pdfua_compliance_level": ""
+  },
+  "elements": [
+    {
+      "Bounds": [
+        329.677001953125,
+        780.3780059814453,
+        577.0240020751953,
+        817.5570068359375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 134,
+      "Page": 0,
+      "Path": "//Document/P",
+      "Text": "Research Collection ",
+      "TextSize": 27.0,
+      "attributes": {
+        "LineHeight": 32.375,
+        "SpaceAfter": 18,
+        "TextAlign": "End"
+      }
+    },
+    {
+      "Bounds": [
+        50.0,
+        565.7530059814453,
+        544.0,
+        763.4889984130859
+      ],
+      "ObjectID": 135,
+      "Page": 0,
+      "Path": "//Document/Figure",
+      "attributes": {
+        "BBox": [
+          50.03799999999865,
+          565.810999999987,
+          543.9379999999946,
+          763.5629999999946
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        524.5870056152344,
+        175.59800720214844,
+        543.8650054931641
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 136,
+      "Page": 0,
+      "Path": "//Document/Title",
+      "Text": "Conference Paper ",
+      "TextSize": 14.0,
+      "attributes": {
+        "LineHeight": 16.75,
+        "SpaceAfter": 18
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        450.3209991455078,
+        489.66400146484375,
+        492.38499450683594
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "PHOGPA+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 138,
+      "Page": 0,
+      "Path": "//Document/H1",
+      "Text": "Use of Public Transport Smart Card Fare Payment Data for Travel Behaviour Analysis in Singapore ",
+      "TextSize": 16.0,
+      "attributes": {
+        "LineHeight": 19.25,
+        "SpaceAfter": 18
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        407.70899963378906,
+        108.48007202148438,
+        421.9989929199219
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "PHOGPA+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 139,
+      "Page": 0,
+      "Path": "//Document/H1[2]",
+      "Text": "Author(s): ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        395.7590026855469,
+        214.44000244140625,
+        409.5290069580078
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 140,
+      "Page": 0,
+      "Path": "//Document/P[2]",
+      "Text": "Chakirov, Artem; Erath, Alexander ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 10
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        373.70899963378906,
+        139.83993530273438,
+        387.9989929199219
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "PHOGPA+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 141,
+      "Page": 0,
+      "Path": "//Document/H1[3]",
+      "Text": "Publication Date: ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        361.7590026855469,
+        83.3800048828125,
+        375.5290069580078
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 142,
+      "Page": 0,
+      "Path": "//Document/P[3]",
+      "Text": "2011 ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 10
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        339.70899963378906,
+        138.41995239257812,
+        353.9989929199219
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "PHOGPA+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 143,
+      "Page": 0,
+      "Path": "//Document/H1[4]",
+      "Text": "Permanent Link: ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 5.375
+      }
+    },
+    {
+      "Bounds": [
+        244.36000061035156,
+        324.6889953613281,
+        257.36000061035156,
+        337.6889953613281
+      ],
+      "ObjectID": 146,
+      "Page": 0,
+      "Path": "//Document/P[4]/Figure",
+      "attributes": {
+        "BBox": [
+          244.30999999999767,
+          324.74099999999453,
+          257.3899999999994,
+          337.7009999999864
+        ]
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        322.3990020751953,
+        257.36000061035156,
+        337.6889953613281
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 144,
+      "Page": 0,
+      "Path": "//Document/P[4]",
+      "Text": "https://doi.org/10.3929/ethz-a-006742061 ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 18
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        280.3489990234375,
+        138.179931640625,
+        294.6390075683594
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "PHOGPA+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 147,
+      "Page": 0,
+      "Path": "//Document/H1[5]",
+      "Text": "Rights / License: ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 5.375
+      }
+    },
+    {
+      "Bounds": [
+        266.32000732421875,
+        265.32899475097656,
+        279.32000732421875,
+        278.32899475097656
+      ],
+      "ObjectID": 150,
+      "Page": 0,
+      "Path": "//Document/P[5]/Figure",
+      "attributes": {
+        "BBox": [
+          266.2689999999857,
+          265.3429999999935,
+          279.3489999999874,
+          278.4229999999952
+        ]
+      }
+    },
+    {
+      "Bounds": [
+        60.0,
+        263.03900146484375,
+        279.32000732421875,
+        278.32899475097656
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 148,
+      "Page": 0,
+      "Path": "//Document/P[5]",
+      "Text": "In Copyright - Non-Commercial Use Permitted ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 18
+      }
+    },
+    {
+      "Bounds": [
+        55.0,
+        72.07020568847656,
+        530.2599945068359,
+        97.84019470214844
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 152,
+      "Page": 0,
+      "Path": "//Document/Aside/P",
+      "Text": "This page was generated automatically upon download from the ETH Zurich Research Collection. For more information please consult the Terms of use. ",
+      "TextSize": 10.0,
+      "attributes": {
+        "LineHeight": 12,
+        "SpaceAfter": 18
+      }
+    },
+    {
+      "Bounds": [
+        50.0,
+        25.697998046875,
+        127.39199829101562,
+        44.97599792480469
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Identity-H",
+        "family_name": "DIN Pro",
+        "font_type": "CIDFontType0",
+        "italic": false,
+        "monospaced": false,
+        "name": "KBHMMZ+DINPro",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 155,
+      "Page": 0,
+      "Path": "//Document/P[6]",
+      "Text": "ETH Library ",
+      "TextSize": 14.0,
+      "attributes": {
+        "LineHeight": 16.75
+      }
+    },
+    {
+      "Bounds": [
+        82.2239990234375,
+        732.3492126464844,
+        515.9152526855469,
+        754.8597869873047
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 156,
+      "Page": 1,
+      "Path": "//Document/H1[6]",
+      "Text": "USE OF PUBLIC TRANSPORT SMART CARD FARE PAYMENT DATA FOR TRAVEL BEHAVIOUR ANALYSIS IN SINGAPORE ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 17.875,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        228.1728057861328,
+        701.1391448974609,
+        241.6084747314453,
+        711.1413726806641
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 159,
+      "Page": 1,
+      "Path": "//Document/L/LI/Lbl",
+      "Text": "A. ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        241.6084747314453,
+        701.1332855224609,
+        368.86024475097656,
+        713.3686828613281
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 160,
+      "Page": 1,
+      "Path": "//Document/L/LI/LBody",
+      "Text": "CHAKIROV a, A. ERATH a ",
+      "TextSize": 6.9600067138671875
+    },
+    {
+      "Bounds": [
+        237.53199768066406,
+        688.6547241210938,
+        360.6172637939453,
+        700.7362823486328
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": true,
+        "monospaced": false,
+        "name": "QZOWRW+Times-Italic",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 163,
+      "Page": 1,
+      "Path": "//Document/P[7]",
+      "Text": "a Future Cities Laboratory, ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 8.375,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        135.975341796875,
+        675.9366455078125,
+        462.21507263183594,
+        685.7622375488281
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": true,
+        "monospaced": false,
+        "name": "QZOWRW+Times-Italic",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 165,
+      "Page": 1,
+      "Path": "//Document/Footnote",
+      "Text": "Singapore -ETH Centre for Global Environmental  Sustainability ( SEC), ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25
+      }
+    },
+    {
+      "Bounds": [
+        275.0903778076172,
+        663.3399963378906,
+        323.15846252441406,
+        673.1656036376953
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": true,
+        "monospaced": false,
+        "name": "QZOWRW+Times-Italic",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 167,
+      "Page": 1,
+      "Path": "//Document/P[8]/Sub",
+      "Text": "Singapore ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        222.2860565185547,
+        650.6219177246094,
+        375.74647521972656,
+        660.4475250244141
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": true,
+        "monospaced": false,
+        "name": "QZOWRW+Times-Italic",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 168,
+      "Page": 1,
+      "Path": "//Document/P[8]/Sub[2]",
+      "Text": "Email: chakirov@ivt.baug.ethz.ch ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        267.77085876464844,
+        606.4729614257812,
+        330.4229431152344,
+        616.3868865966797
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 169,
+      "Page": 1,
+      "Path": "//Document/H1[7]",
+      "Text": "ABSTRACT ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 18,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.02061462402344,
+        410.8662414550781,
+        526.4612426757812,
+        585.2651214599609
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 170,
+      "Page": 1,
+      "Path": "//Document/P[9]",
+      "Text": "Electronic payment systems for public transport, introduced in many cities all over the world during the last decade, are able to capture system transactions and provide comprehensive data records on usage of public transport. Processing and analysis of this data opens new opportunities in transportation and travel behaviour research and is becoming an emerging research topic. This paper presents an analysis of one full day of public transport smart card activity for the entire city-state of Singapore and investigates its potential for characterization of public transport system and urban travel behaviour. In particular, an assessment of spatial and temporal travel behaviour including mode choice, travel- and waiting times is performed using statistical tools and data mining techniques. Thereby data reveals country specific preferences and behaviours as the influence of high passenger volumes and seat availability on route choice decisions and travel times. Furthermore data’s ability to detect travel patterns and infer peoples travel purposes and locations of regular activities is investigated and strategies for modelling of home and work locations are presented. Additionally, household survey data from 2008 is used for comparison of multi modal travel patterns involving public and private transport. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.125
+      }
+    },
+    {
+      "Bounds": [
+        72.02061462402344,
+        385.551513671875,
+        345.7352600097656,
+        395.5537567138672
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 171,
+      "Page": 1,
+      "Path": "//Document/P[10]",
+      "Text": "Keywords: Public transport, smart card data, travel behaviour ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        750.9456634521484,
+        198.87892150878906,
+        760.8595733642578
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 172,
+      "Page": 2,
+      "Path": "//Document/H1[8]",
+      "Text": "1. INTRODUCTION ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.75
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        669.2275848388672,
+        526.1497802734375,
+        742.4559020996094
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 173,
+      "Page": 2,
+      "Path": "//Document/P[11]",
+      "Text": "Electronic fare collection as the most advanced form of automatic fare collection (AFC) systems for public transport offers many advantages and benefits for operators of public transport as well as their customers. Convenient, easy and almost instantaneous payment process saves customers time and makes use of public transport more attractive. Furthermore, lower operation costs, high efficiency and reliability as well as new opportunities for implementation of flexible fare schemes are additional benefits for operators. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        593.2834167480469,
+        526.2612915039062,
+        653.9151000976562
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 174,
+      "Page": 2,
+      "Path": "//Document/P[12]",
+      "Text": "Another important aspect of an electronic fare collection system is the detailed data records that are continuously generated and archived. Analysis of such data can provide valuable insights into usage of public transport and help for better understanding of people’s travel behaviour and their preferences. Consequently, processing and mining of these substantial amounts of data are becoming more and more emerging research topics in the areas of mobility and transportation planning. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.5,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        479.5051727294922,
+        526.4070129394531,
+        578.0813446044922
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 175,
+      "Page": 2,
+      "Path": "//Document/P[13]",
+      "Text": "In this context, the example of Singapore represents an interesting study case as a highly dynamic city with a centralized, long-term oriented transportation planning policy and fast growing commuter population. The combination of a distance-based fare scheme for public transport and the use of contactless stored-value cards, so called EZ-Link cards, for payment of public transport fares, provide a nearly comprehensive data record of public transportation usage for the entire city. This allows detailed assessment of travel behaviour and mobility patterns, which is the topic of this work. The main goals thereby are the detailed detection and description of specific travel behaviour in Singapore and use of AFC data for activity location modelling. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.75,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        353.03094482421875,
+        526.2535552978516,
+        464.1927032470703
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 176,
+      "Page": 2,
+      "Path": "//Document/P[14]",
+      "Text": "This paper starts with a brief overview of recent research on analysis and use of smart card data. Afterwards, in section 3, the AFC system implemented in Singapore is introduced and the available data records are described. The following section 4 covers the analysis of travel behaviour in Singapore with investigation of specific preferences and usage patterns of public transport in particular. In section 5, the focus is switched to identification of activities, performed between different public transport journeys. Additional data needs and further future strategies for more comprehensive activity modelling are presented. The paper concludes with future outlook and a discussion of opportunities and limitations of the smart card data use for travel behaviour characterization and transport planning. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        314.8877410888672,
+        232.07620239257812,
+        324.8016662597656
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 177,
+      "Page": 2,
+      "Path": "//Document/H1[9]",
+      "Text": "2. LITERATURE REVIEW ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.25
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        175.90518188476562,
+        529.0245971679688,
+        299.7960662841797
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 178,
+      "Page": 2,
+      "Path": "//Document/P[15]",
+      "Text": "In recent years the number of published articles and papers on smart card data use in public transport is increasing. A comprehensive literature review on this topic is offered by Pelletier et al. (2011), where three categories of studies have been identified: strategic level studies with focus on long-term planning, tactical level studies related to schedule adjustment, load profiles and transfers and operational-level studies analysing performance indicators of public transport network and smart card operations itself. Research with special focus on spatial travel information provided by AFC systems has been done by Li et al. (2011) and Munizaga et al. (2011), where Origin-Destination Matrices are estimated using smart card data. Moreover recent work with focus on commercialization by Páez et al. (2011) presents a geodemographic analysis, which links smart card data to household survey data and business data points to identify potential commercial partnerships near metro stations in Montreal.  ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        112.67909240722656,
+        526.3087615966797,
+        164.10342407226562
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 179,
+      "Page": 2,
+      "Path": "//Document/P[16]",
+      "Text": "In addition work on use of smart card data very similar to Singapore’s public transport AFC system was done in Seoul. Park et al. (2008) investigated reliability of smart card data and its potential for describing characteristics of public transport usage. Jang (2010) uses one week data from the same AFC system to analyse travel time and transfer patterns in Seoul. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        74.76774597167969,
+        525.8881378173828,
+        84.76997375488281
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 181,
+      "Page": 2,
+      "Path": "//Document/P[17]/ParagraphSpan",
+      "Text": "However, only few research papers address modelling of activity types and locations implicitly based ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.02400207519531,
+        700.5453796386719,
+        526.1433563232422,
+        761.0556182861328
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 182,
+      "Page": 3,
+      "Path": "//Document/P[17]/ParagraphSpan[2]",
+      "Text": "on travel data. Ahas et al. (2006) used positioning data from mobile phones to identify activity locations meaningful to users. Chu et al. (2010) presented a methology for characterization of trips based on socio-demographic characteristics, multiday travel patterns and association of travel with specific locations. Strategies for extension of these concepts towards more general activity location modelling based on smart card data is one of the goals of this work. ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        662.4021759033203,
+        317.6011505126953,
+        672.3161010742188
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 183,
+      "Page": 3,
+      "Path": "//Document/H1[10]",
+      "Text": "3. EZ-LINK SMART CARD IN SINGAPORE ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12
+      }
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        637.1978607177734,
+        263.88255310058594,
+        647.1117858886719
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 184,
+      "Page": 3,
+      "Path": "//Document/H2",
+      "Text": "3.1 Automatic face collection system ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.875
+      }
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        542.7285766601562,
+        526.4248809814453,
+        628.5866546630859
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 185,
+      "Page": 3,
+      "Path": "//Document/P[18]",
+      "Text": "The AFC system for public transport based on contactless, stored value smart cards, so called EZ-Link cards, was introduced in Singapore in April 2002. Today, the EZ-Link card can be used island wide for payment of all modes of public transport, regardless of operator as well as for minor retail transactions, parking and road toll payment. Though cash payment of single fares at higher rates is still possible, e-payments with EZ-Link card account for 96% of all trips, which makes the data records from EZ-Link card highly comprehensive and the missing cash paying travellers negligible (Prakasam, 2008). ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        327.70249938964844,
+        526.2857818603516,
+        527.4050598144531
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 186,
+      "Page": 3,
+      "Path": "//Document/P[19]",
+      "Text": "The implementation of uniform smart card AFC system allowed the introduction of a distance-based fare scheme for all modes of public transport in Singapore. The fare charge for each customer is based exactly on the travelled distance, transport mode and demographic attributes as there are prioritized rates for children, students and senior citizens. Customers have to tap their EZ-Link card on the reading device every time they enter and leave a train station or a bus. Thus, besides of the information on boarding time and location, the data collected from EZ-Link cards contains detailed records of alighting times and destination location for both bus stops as well as Mass Rapid Transit (MRT) and Light Rail Transit (LRT) stations. These attributes distinguish the Singaporean smart card data from those collected by the majority of other automatic fare collection systems and allow more detailed assessment of travel behaviour and mobility patterns. Furthermore, as the EZ-Link cards are easily rechargeable, people tend to continuously use one single EZ-Link card with a unique card ID for all their public transport journeys for substantial periods of time. As the technical setup of the system doesn’t allow more than one person to travel on a single EZ-Link card, it can be assumed that each unique card ID represents one single person. This enables highly disaggregated analysis of individual itineraries and opens new ways for understanding peoples travel behaviour on short as well as long term scales.  ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.25,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        302.2773742675781,
+        237.4362335205078,
+        312.19129943847656
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 187,
+      "Page": 3,
+      "Path": "//Document/H2[2]",
+      "Text": "3.2 Available EZ-Link data set ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.625
+      }
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        245.75257873535156,
+        526.1212768554688,
+        293.78761291503906
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 188,
+      "Page": 3,
+      "Path": "//Document/P[20]",
+      "Text": "In the context of this paper, we adopt definitions used by the Singapore Land Transportation Authority (LTA) and EZ-Link Corporation and define a journey as a one way travel from one activity to another. Each journey consists out of one or several consecutive journey stages or trips on same or different modes (LTA, 2011). ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.02963256835938,
+        157.22225952148438,
+        526.6898803710938,
+        230.55050659179688
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 189,
+      "Page": 3,
+      "Path": "//Document/P[21]",
+      "Text": "The analysis presented in this paper is based on one full day record of journeys from 5am of Tuesday, 15th September 2010 till 2am of Wednesday, 16th September 2010. This data set was already preprocessed by LTA and single trips of each customer were aggregated to journeys, according to fare rules defined by Public Transport Council (2010). For further processing of this data, we used MySQL open source database in combination with programming languages R and Java. Furthermore all train stations and bus stops were geocoded using information provided by LTA. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.02963256835938,
+        80.30657958984375,
+        526.2870025634766,
+        141.90977478027344
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 193,
+      "Page": 3,
+      "Path": "//Document/P[22]/ParagraphSpan",
+      "Text": "The original aggregated one-day data set contains ca. 3.6 million journey records and ca. 1.8 million unique card IDs. In the process of preparation and reviewing of this data, about 84’000 journeys (2.4%) were removed from the dataset due to errors, missing values or illogical journey routes, with same origin and destination location recorded as a result of aggregation according to the fare rules. It is also important to note that as this data set doesn’t contain service numbers of bus routes, vehicle ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        738.4568328857422,
+        525.7876739501953,
+        761.0557250976562
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 194,
+      "Page": 4,
+      "Path": "//Document/P[22]/ParagraphSpan[2]",
+      "Text": "IDs or interchange locations, its use for detection of weak points of public transport network, like overcrowded buses is limited. ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        700.4240417480469,
+        227.29588317871094,
+        710.3379669189453
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 195,
+      "Page": 4,
+      "Path": "//Document/H1[11]",
+      "Text": "4. TRAVEL BEHAVIOUR ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.125
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        675.1093139648438,
+        364.720703125,
+        685.0232391357422
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 196,
+      "Page": 4,
+      "Path": "//Document/H2[3]",
+      "Text": "4.1 Characteristics of public transport usage in Singapore ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.875
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        593.2698059082031,
+        526.3021392822266,
+        666.4981231689453
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 197,
+      "Page": 4,
+      "Path": "//Document/P[23]",
+      "Text": "A variety of methods can be applied for characterization and statistical analysis of public transport usage in urban areas. Description in spatial and temporal dimensions are often used by transportation planning authorities as indicators for performance and quality of service. The objective of this section is not to provide comprehensive statistical description of Singaporean public transport system but to show how the EZ-Link data can be specifically used as indicator of region and culture specific travel behaviour and identification of external factors influencing peoples travel decisions. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.5,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        466.7734832763672,
+        528.9517364501953,
+        578.0677185058594
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 198,
+      "Page": 4,
+      "Path": "//Document/P[24]",
+      "Text": "In this context analysis of times, when people decide to start their travel can provide a valuable insight. Figure 5.1 shows the temporal distribution of boarding times at the first stop or station of the journey for all public transport journeys during 24h. The sharp peaks in the morning and evening hours are eye-catching. Especially the evening peak shows a high number of journey starts concentrated within a 15-20 min period. The fact that many people start their journeys almost synchronously during morning as well as evening peak hours indicates little flexibility in the travel time choice for commuting, which is assumed to be related to commonly inflexible working hours in Singapore. Additionally it is worth noting the small peak around 2pm in the afternoon might result from lunch time travels, part-time workers and class hours in educational institutions. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        365.61395263671875,
+        526.2999267578125,
+        451.46099853515625
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 199,
+      "Page": 4,
+      "Path": "//Document/P[25]",
+      "Text": "The shown trip distribution also highlights the main advantages of analysis based on AFC data over the commonly used self-reported survey. High temporal resolution and high reliability of records allow aggregation on a minute basis and so the detection of sharp peaks, clearly visible in Figure 5.1. This peak wouldn’t look that distinct and be more diluted in case data of data aggregated in larger time bins. Exactly this though is usually required for less precise and personally biased data from self-reported travel diaries. Using AFC data instead transportation planners and transportation authorities can obtain information  and gain new insights, hidden from them beforehand. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        130.55999755859375,
+        152.40499877929688,
+        442.36399841308594,
+        352.2120056152344
+      ],
+      "ClipBounds": [
+        130.55999755859375,
+        152.40499877929688,
+        442.36399841308594,
+        352.2120056152344
+      ],
+      "ObjectID": 200,
+      "Page": 4,
+      "Path": "//Document/Figure[2]",
+      "attributes": {
+        "BBox": [
+          130.55499999999302,
+          152.42799999999988,
+          442.30199999999604,
+          352.2199999999866
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        204.88999938964844,
+        139.6932830810547,
+        393.3880615234375,
+        149.69552612304688
+      ],
+      "ClipBounds": [
+        204.88999938964844,
+        139.6932830810547,
+        393.3880615234375,
+        149.69552612304688
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 201,
+      "Page": 4,
+      "Path": "//Document/P[26]",
+      "Text": "Figure 5.1. Temporal trip start distribution ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.02400207519531,
+        750.9458618164062,
+        257.1812744140625,
+        760.8597869873047
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 202,
+      "Page": 5,
+      "Path": "//Document/H2[4]",
+      "Text": "4.2 Identification of Waiting Times ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.125
+      }
+    },
+    {
+      "Bounds": [
+        72.02400207519531,
+        725.6311340332031,
+        213.84934997558594,
+        735.5450592041016
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 203,
+      "Page": 5,
+      "Path": "//Document/H3",
+      "Text": "4.2.1 Identification Method ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.75
+      }
+    },
+    {
+      "Bounds": [
+        72.02400207519531,
+        631.3164215087891,
+        526.2834777832031,
+        717.1413726806641
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 204,
+      "Page": 5,
+      "Path": "//Document/P[27]",
+      "Text": "Another important temporal measure, which has implications on travel behaviour and route choice, is the waiting time – the timespan between arriving to the station or stop and actually boarding the transportation vehicle. In case of EZ-Link data, no information on waiting time of bus passengers can be obtained, as the smart card reading devices are located inside the buses and passengers tap their EZ-Link card as they enter the vehicle. However, in case of MRT and LRT, EZ-Link cards are tapped during entering or leaving the station and not the vehicle. This implies that the waiting time is a part of total recorded travel time and can be extracted from EZ-Link data record. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.02400207519531,
+        504.8311462402344,
+        528.9287567138672,
+        619.5146636962891
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 205,
+      "Page": 5,
+      "Path": "//Document/P[28]",
+      "Text": "In this paper we use the term “waiting time” to describe the time, a passenger spends inside the station, which includes both walking and the actual waiting time. In order to extract this time for each station, all MRT trips from this station to other stations on the same MRT line are considered. Hence only direct, uninterrupted trips without interchanges are used for calculation of waiting times. For each pair of stations, travel times of passengers traveling between these two stations in each direction are extracted. It is assumed that the fastest passenger arrived to the platform just in time and did not have to wait for the train at all. His waiting time is considered to be zero and his travel time is used as a benchmark. By subtracting this benchmark time from the travel times of all other customers travelling between the same two stations, waiting times of these passengers are obtained. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        155.9600067138672,
+        229.4709930419922,
+        439.406005859375,
+        491.2100067138672
+      ],
+      "ClipBounds": [
+        155.9600067138672,
+        229.4709930419922,
+        439.406005859375,
+        491.2100067138672
+      ],
+      "ObjectID": 206,
+      "Page": 5,
+      "Path": "//Document/Figure[3]",
+      "attributes": {
+        "BBox": [
+          155.99399999999878,
+          229.4649999999965,
+          439.4219999999914,
+          491.17399999999907
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        79.22380065917969,
+        217.00328063964844,
+        518.9701843261719,
+        227.00552368164062
+      ],
+      "ClipBounds": [
+        79.22380065917969,
+        217.00328063964844,
+        518.9701843261719,
+        227.00552368164062
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 207,
+      "Page": 5,
+      "Path": "//Document/P[29]",
+      "Text": "Figure 5.2. Average waiting times (in-station times) per station for East West MRT Line during 24h ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.375,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        191.5755615234375,
+        209.2455596923828,
+        201.48948669433594
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 208,
+      "Page": 5,
+      "Path": "//Document/H3[2]",
+      "Text": "4.2.2 Results and Findings ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.75
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        84.5096435546875,
+        526.3882446289062,
+        183.05267333984375
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 210,
+      "Page": 5,
+      "Path": "//Document/P[30]/ParagraphSpan",
+      "Text": "Dependent on the focus of the analysis of waiting times at MRT stations, information on significant service frequency changes during the day as well as potentially overcrowded trains can be gained. However, it is important to note, that due to the definition and identification method of the waiting time, the absolute time values don’t precisely indicate the service frequency at the particular station. Large hub station with several access points tend to have larger variations and higher averages of waiting times, which reflects different lengths of access ways to the platform from different entry points. In Figure 5.2 the average waiting times per station for Singapore’s East-West MRT line are shown. As expected large hub stations with long underground access ways like Outram Park Station ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        612.0046844482422,
+        526.3418731689453,
+        761.0557250976562
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 211,
+      "Page": 6,
+      "Path": "//Document/P[30]/ParagraphSpan[2]",
+      "Text": "show longer waiting times. Notably eye-catching and the actual finding of such analysis is however the fact that the longest waiting time is found for Tampines – a single above-ground MRT station. This exceptionally high value in comparison to the other stations can be explained by looking at the histogram of waiting times, shown in Figure 5.3. Next to the common waiting time distribution around 4 min, a second peak of waiting times ranging from 10 to 15 min is clearly visible. This peak results from passengers, who take a train in opposite direction towards the last stop at Pasir Ris and then stay in the train to secure a seat for their journey during the morning peak hour. This observation leads to an interesting conclusions: the value of having a seat is exceptionally high and for some people it is worth about 10 min of additional travel time. This findings are also an indication for high passenger volumes and long MRT journeys. As in case of journeys from Tampines station, the average distance to destination station for passengers taking the detour over the Pasir Ris Station is 18.2 km compared to average 14.7 km for passengers taking the direct way. ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        141.91000366210938,
+        412.63499450683594,
+        453.71299743652344,
+        598.9620056152344
+      ],
+      "ClipBounds": [
+        141.91000366210938,
+        412.63499450683594,
+        453.71299743652344,
+        598.9620056152344
+      ],
+      "ObjectID": 212,
+      "Page": 6,
+      "Path": "//Document/Figure[4]",
+      "attributes": {
+        "BBox": [
+          141.9539999999979,
+          412.69699999998556,
+          453.7019999999902,
+          598.929999999993
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        138.3800048828125,
+        387.1829833984375,
+        459.7752990722656,
+        409.905517578125
+      ],
+      "ClipBounds": [
+        138.3800048828125,
+        387.1829833984375,
+        459.7752990722656,
+        409.905517578125
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 213,
+      "Page": 6,
+      "Path": "//Document/P[31]",
+      "Text": "Figure 5.3. Histogram of waiting times at the Tampines MRT Station for journeys starting between 7am-9am ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.75,
+        "SpaceAfter": 18,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        336.53941345214844,
+        526.2490539550781,
+        359.0499725341797
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 214,
+      "Page": 6,
+      "Path": "//Document/H1[12]",
+      "Text": "5. TOWARDS ACTIVITY LOCATION MODELLING BASED ON PUBLIC TRANSPORT JOURNEYS ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.125
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        311.2136535644531,
+        265.67091369628906,
+        321.12757873535156
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 215,
+      "Page": 6,
+      "Path": "//Document/H2[5]",
+      "Text": "5.1 Activities as reason for travelling ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.875
+      }
+    },
+    {
+      "Bounds": [
+        72.01275634765625,
+        140.92166137695312,
+        526.275634765625,
+        302.6024627685547
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 216,
+      "Page": 6,
+      "Path": "//Document/P[32]",
+      "Text": "People usually travel from one place to another because they want to perform an activity, which cannot be performed in the desired way at their current location. The activities can be of various types and durations as there are work, education, leisure and social activities for example. Hence, in order to understand peoples travel behaviour and therewith flows, mobility patterns and traffic volumes, it is necessary to look at people’s daily activities and their locations. This approach is also used in modern agent-based transport simulations like MATSim, which include spatial and temporal information about activities in its model (MATSim-T, 2011). In absence of comprehensive data sources such as a whole population census, one of the main challenges in modelling activities results from lack of verified data of high spatial resolution on people’s home and particularly work locations. However such information is not only important for transport planning and implementation of agent-based transport models, but is also very valuable in the areas of urban development and land-use planning.. Travel patterns observed in smart card data from public transport can provide valuable information on peoples primary activity locations and help to verify and refine existing models and assumptions. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.25,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.01275634765625,
+        115.49653625488281,
+        334.76153564453125,
+        125.41046142578125
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 217,
+      "Page": 6,
+      "Path": "//Document/H2[6]",
+      "Text": "5.2 Consistency of public transport journeys chains ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.875
+      }
+    },
+    {
+      "Bounds": [
+        72.01275634765625,
+        84.28645324707031,
+        526.2127075195312,
+        106.88534545898438
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 219,
+      "Page": 6,
+      "Path": "//Document/P[33]/ParagraphSpan",
+      "Text": "To make statements about activities of a particular person, the recorded daily journey chain of this person needs to be consistent. Consistency in the context of AFC smart card data record means, that ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.02400207519531,
+        675.2306671142578,
+        526.3685760498047,
+        761.0556182861328
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 220,
+      "Page": 7,
+      "Path": "//Document/P[33]/ParagraphSpan[2]",
+      "Text": "the person who arrived to the activity location by public transport, has to leave it after ending the activity also by public transport, otherwise the activity duration can’t be extracted. The assumption of consistency is hard to verify based on AFC data only, as the use of any other means of transport except from public transport, e.g. walking, cannot be detected. However, the most obvious cases of inconsistency can be identified by analysing the distances between the alighting location of the last journey and the boarding location of the following journey. Using this method in-between trips by other means of transport such as taxi or car can be recognized. ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.04608154296875,
+        586.6898651123047,
+        526.1786041259766,
+        659.9181823730469
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 221,
+      "Page": 7,
+      "Path": "//Document/P[34]",
+      "Text": "The analysis of distances between EZ-Link journeys is shown in form of a cumulative relative frequency graph in Figure 6.1. Only persons with more than one journey recorded in the used one day EZ-Link record were evaluated. The graph shows that 89.7% of journeys, which are following a preceding one, start less than 1 km away from previous alighting location. This indicates that the majority of public transport users don’t switch to other transport modes between public transport journeys. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.75,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0350341796875,
+        460.20457458496094,
+        526.3211059570312,
+        571.3442535400391
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 222,
+      "Page": 7,
+      "Path": "//Document/P[35]",
+      "Text": "A slightly different picture is obtained by investigating distances between first boarding and last alighting station of the day, which in case that they are close by, gives a strong indication for home location. As shown in the cumulative relative frequency graph of these distances for all persons in the EZ-Link data, including those with one journey (Figure 6.1), only 61% return to the station, which is located in radius of 1 km around their first departure station of the day. This is for the major part a logical consequence of the fact, that 30% of EZ-Link journeys are one-way journeys. In order to better understand the mode choice and identify transportation modes used in combination with public transport in Singapore, we make use of the Household Interview Travel Survey 2008 (Land Transportation Authority, 2009) in the following section. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        142.41000366210938,
+        256.4360046386719,
+        454.25599670410156,
+        442.9570007324219
+      ],
+      "ClipBounds": [
+        142.41000366210938,
+        256.4360046386719,
+        454.25599670410156,
+        442.9570007324219
+      ],
+      "ObjectID": 223,
+      "Page": 7,
+      "Path": "//Document/Figure[5]",
+      "attributes": {
+        "BBox": [
+          142.43399999999383,
+          256.46399999999267,
+          454.18199999998615,
+          442.93599999998696
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        80.42379760742188,
+        231.16664123535156,
+        517.7249145507812,
+        253.76551818847656
+      ],
+      "ClipBounds": [
+        80.42379760742188,
+        231.16664123535156,
+        517.7249145507812,
+        253.76551818847656
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 224,
+      "Page": 7,
+      "Path": "//Document/P[36]",
+      "Text": "Figure 6.1. Cumulative relative frequency graph of distances between journey stages and distances between first boarding location and last alighting location of the day ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        199.7359619140625,
+        404.0860290527344,
+        209.64988708496094
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 225,
+      "Page": 7,
+      "Path": "//Document/H2[7]",
+      "Text": "5.3 Comparison with the Household Interview Travel Survey 2008 ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.375
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        123.86907958984375,
+        526.2944030761719,
+        184.50076293945312
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 226,
+      "Page": 7,
+      "Path": "//Document/P[37]",
+      "Text": "The Household Interview Travel Survey (HITS) is conducted by Land Transportation Authority in Singapore every 4 years and involved over 10500 households during its latest conduct in 2008 (Land Transportation Authority, 2009). The detailed travel diary data from this survey can be used as a valuable supplement for enrichment of the information obtained from analysis of the AFC smart card data. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.5,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        73.35003662109375,
+        528.9793395996094,
+        108.66700744628906
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 227,
+      "Page": 7,
+      "Path": "//Document/P[38]",
+      "Text": "In order to investigate the questions raised in previous section and better understand the mode-mix in Singapore, the daily journey record of persons using public transport at least once during the day, which is total of 13904 persons, is extracted from HITS 2008 and referred to as PT-HITS in following. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        523.4307556152344,
+        526.3827209472656,
+        761.0557250976562
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 228,
+      "Page": 8,
+      "Path": "//Document/P[39]",
+      "Text": "Looking at the distances between first starting point and last destination of the day, we observe more than 98% of all persons returning by the end of the day to the same locations. This result is expected as participants in HITS supposed to report all trips including all modes. Analysis of the alternative modes of transport used by PT-HITS interviewees beside public transport, can partially explain the gap, which we observed in Figure 6.1. A total of 17.4% of reported journeys in PT-HITS include or are completely conducted by modes different from public transport. We group these modes in 7 categories: passenger, private bus, taxi, driver, walk, which is considered a mode only if walking distance is longer than 1 km, cycle and an unknown mode. Trips with unknown or other mode is partially reported in HITS and partially result of identified underreporting, as in the case when the new journey starts more than 1 km away from previous alighting location. Figure 6.2 shows the distribution of these modes with the dark coloured share representing the percentage of first or last journeys of the day using this mode. The passenger mode, which reflects pick-ups and drop-offs by a family member or a friend driving a private vehicle or a motorcycle, is with 7.4% of all journeys of the day, the most popular one. This noticeable aspect of Singaporean travel behaviour is a result of a strong tendency to avoid the use of public transport for the first or last mile of the trip, combined with high costs of owning a car, which encourages car pools. Furthermore, private buses such as company, school or other shuttle buses are used for 5.1% all journeys in PT-HITS. Almost all of these journeys are made as a part of the first or last journey of the day, which indicates the high usage of private buses for travels to and from working or education location. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 17.75,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        141.70999145507812,
+        344.4149932861328,
+        453.5559997558594,
+        510.40199279785156
+      ],
+      "ClipBounds": [
+        141.70999145507812,
+        344.4149932861328,
+        453.5559997558594,
+        510.40199279785156
+      ],
+      "ObjectID": 229,
+      "Page": 8,
+      "Path": "//Document/Figure[6]",
+      "attributes": {
+        "BBox": [
+          141.71399999999994,
+          344.41999999999825,
+          453.5819999999949,
+          510.3729999999923
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        102.97999572753906,
+        319.36663818359375,
+        494.84046936035156,
+        341.96551513671875
+      ],
+      "ClipBounds": [
+        102.97999572753906,
+        319.36663818359375,
+        494.84046936035156,
+        341.96551513671875
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 230,
+      "Page": 8,
+      "Path": "//Document/P[40]",
+      "Text": "Figure 6.2. Distribution of additional transportation modes of public transport customers reported in PT-HITS. Dark coloured is the percentage of first or last journey of the day. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        287.9359588623047,
+        408.24037170410156,
+        297.8498840332031
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 231,
+      "Page": 8,
+      "Path": "//Document/H2[8]",
+      "Text": "5.4 Activity durations and detection of work activities and location ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.375
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        123.63868713378906,
+        526.3739013671875,
+        272.72283935546875
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 232,
+      "Page": 8,
+      "Path": "//Document/P[41]",
+      "Text": "One of the most important indicators for type of activity performed between two consecutive journeys is its duration. Figure 6.3 shows the distribution of activity durations between journeys recorded in EZ-Link data. As activity duration, we consider the time span between two journeys of a consistent journey chain as defined in section 6.1. Consequently again only persons with more than one journey per day and distances between consecutive journeys with less than 1 km are considered. The observed peak between approx. 8 and 12 hours indicates the typical working time span and can be used to identify working activities. The sharp edge at 45 min. is a result of aggregation method and definition of a journey by Public Transport Council (2010). According to these rules, 45 min is a time limit, under which two consecutive trips are considered as a part of one journey. This makes many of short term activities invisible and shows the overestimation of linked trips in the aggregated EZ-Link data. Observed activities under 45 min are mostly results of two journeys with MRT or LRT, as here the 45 min limit do not apply and each entrance to the station is considered as a new journey. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        134.61000061035156,
+        582.5970001220703,
+        460.25999450683594,
+        763.0570068359375
+      ],
+      "ClipBounds": [
+        134.61000061035156,
+        582.5970001220703,
+        460.25999450683594,
+        763.0570068359375
+      ],
+      "ObjectID": 233,
+      "Page": 9,
+      "Path": "//Document/Figure[7]",
+      "attributes": {
+        "BBox": [
+          134.63499999999476,
+          582.6109999999753,
+          460.18099999999686,
+          763.0829999999842
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        200.08999633789062,
+        570.0932769775391,
+        398.08033752441406,
+        580.0955200195312
+      ],
+      "ClipBounds": [
+        200.08999633789062,
+        570.0932769775391,
+        398.08033752441406,
+        580.0955200195312
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 234,
+      "Page": 9,
+      "Path": "//Document/P[42]",
+      "Text": "Figure 6.3. Distribution of activity durations ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.02420043945312,
+        456.2024841308594,
+        526.3588409423828,
+        554.7455139160156
+      ],
+      "ClipBounds": [
+        72.02420043945312,
+        456.2024841308594,
+        526.3588409423828,
+        554.7455139160156
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": true,
+      "Lang": "en",
+      "ObjectID": 235,
+      "Page": 9,
+      "Path": "//Document/P[43]",
+      "Text": "In the next step, the first estimation of work locations in Singapore based only on activity durations extracted from EZ-Link data was performed. It is assumed that all activities with duration between 8 and 12 hours are work activities. Figure 6.4 shows the geographical distribution of detected work location in Singapore aggregated according to 55 areas defined in Development Guide Plan by Urban Redevelopment Authority in Singapore. Only activities from consistent public transport journeys are considered, so work locations of people arriving to work with private transport as car, taxi or private busses are not included. To account for those in the final model, again data from HITS 2008 can be used. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 17.5,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        153.41000366210938,
+        242.989990234375,
+        441.2799987792969,
+        443.3659973144531
+      ],
+      "ClipBounds": [
+        153.41000366210938,
+        243.28500366210938,
+        441.2799987792969,
+        443.3659973144531
+      ],
+      "ObjectID": 236,
+      "Page": 9,
+      "Path": "//Document/Figure[8]",
+      "attributes": {
+        "BBox": [
+          153.35399999999936,
+          243.26399999999558,
+          441.2219999999943,
+          443.41599999999744
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        156.74000549316406,
+        218.20358276367188,
+        441.39646911621094,
+        228.20582580566406
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 237,
+      "Page": 9,
+      "Path": "//Document/P[44]",
+      "Text": "Figure 6.4. Distribution of detected work locations in Singapore ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 18,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.01904296875,
+        186.772705078125,
+        406.5752868652344,
+        196.68661499023438
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 238,
+      "Page": 9,
+      "Path": "//Document/H2[9]",
+      "Text": "5.5 Further identification strategies for activity types and locations ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.75
+      }
+    },
+    {
+      "Bounds": [
+        72.01904296875,
+        142.932861328125,
+        526.4000549316406,
+        178.24981689453125
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 239,
+      "Page": 9,
+      "Path": "//Document/P[45]",
+      "Text": "The analysis of activity durations is a first step towards characterization of primary activities. In order to make this characterization more reliable and enable identification of home and work locations by use of EZ-Link data, further information is required. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.01904296875,
+        79.706787109375,
+        526.1582794189453,
+        127.62037658691406
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 241,
+      "Page": 9,
+      "Path": "//Document/P[46]/ParagraphSpan",
+      "Text": "One valuable source of additional information, as already shown in section 6.3 is the HITS data. As for instance country specific durations of certain activities can be extracted form HITS and used for more precise characterization of activities extracted from EZ-Link data record. Furthermore, identifying typical activity start times and matching those with working hours in Singapore can ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        751.0534820556641,
+        359.5484619140625,
+        761.0557250976562
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "ObjectID": 242,
+      "Page": 10,
+      "Path": "//Document/P[46]/ParagraphSpan[2]",
+      "Text": "further improve the accuracy for the detection of work activities. ",
+      "TextSize": 11.039993286132812
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        624.601318359375,
+        526.2888946533203,
+        735.7409973144531
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 243,
+      "Page": 10,
+      "Path": "//Document/P[47]",
+      "Text": "Another important and inevitable indicator for activity type is the regularity and frequency of trips from and to the certain activity area. In order to be able to conduct such analysis, a longer term EZ-Link record of at least several consecutive days is required. This would enable the analysis of multiday travel behaviour and identification of the primary activity spaces or so called anchor points. The regularity of activities performed there would give a strong indication for their type. Furthermore multiday data would also help to identify shift workers with overnight shifts. Additionally, analysis of activities based on demographic factors and differentiation of work activities for adults and educational activities for students can be performed. Based on this analysis, the accuracy and reliability of estimations for home and work locations and their densities can be highly improved. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        586.5685272216797,
+        298.78761291503906,
+        596.4824371337891
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 244,
+      "Page": 10,
+      "Path": "//Document/H1[13]",
+      "Text": "6. CONCLUSION AND FUTURE WORK ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.75
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        390.96180725097656,
+        526.2822570800781,
+        578.0787658691406
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 245,
+      "Page": 10,
+      "Path": "//Document/P[48]",
+      "Text": "In this paper approaches for usage of public transport smart card fare payment data for characterization and analysis of travel behaviour and public transport system on example of city-state Singapore were presented. It was also demonstrated how data from travel surveys can be used to supplement the smart card data from AFC system and provide additional information for its interpretation. Furthermore a link between public transport usage and activities as reason for travelling was established and methods for identification of primary activity locations were presented. This is a first step towards an activity location model based on the public journeys record for entire Singapore. Disaggregated, multi-day data record, which is in prospect of becoming accessible for our research, will allow expansion and implementation of concepts presented in this work. Furthermore, obtained models of work locations on basis of EZ-Link data can be compared with exciting models used by land planners. Disaggregated multi-day data will open the door for deeper analysis of travel patterns and travel behaviour, identification of load profiles for bus routes, stations and interchanges as well as allow development of route choice model for public transport. This will add additional value to EZ-Link data records and contribute to development of methods for processing and analysis of smart card data records for transportation planning purposes. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        352.91795349121094,
+        234.2732391357422,
+        362.8318786621094
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 246,
+      "Page": 10,
+      "Path": "//Document/H1[14]",
+      "Text": "7. ACKNOWLEDGEMENT ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 5.875
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        308.98980712890625,
+        525.9863128662109,
+        344.3067626953125
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 247,
+      "Page": 10,
+      "Path": "//Document/P[49]",
+      "Text": "The authors thank Land Transportation Authority of Singapore for supporting this research and providing the data set. Funding for this research was provided by National Research Foundation of Singapore. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 18,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        260.6863555908203,
+        277.68035888671875,
+        337.3591613769531,
+        287.5942840576172
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "LENHBL+Times-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 248,
+      "Page": 10,
+      "Path": "//Document/H1[15]",
+      "Text": "REFERENCES ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 18,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        221.1555633544922,
+        507.31886291503906,
+        256.47251892089844
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 249,
+      "Page": 10,
+      "Path": "//Document/P[50]",
+      "Text": "Ahas, R. and Silm, S. and Järv, O. and Saluveer, E. and Tiru, M. (2010) Using Mobile Positioning Data to Model Locations Meaningful to Users of Mobile Phones. Journal of Urban Technology 17, pp. 3-27. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.75
+      }
+    },
+    {
+      "Bounds": [
+        72.01275634765625,
+        183.21107482910156,
+        404.64796447753906,
+        205.84307861328125
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 250,
+      "Page": 10,
+      "Path": "//Document/P[51]",
+      "Text": "Bagchi, M. and White, P.R. (2005) The potential of public smart card data. Transport Policy 12, pp.464-474. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.75
+      }
+    },
+    {
+      "Bounds": [
+        72.01275634765625,
+        145.29971313476562,
+        493.0364074707031,
+        167.8986053466797
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 251,
+      "Page": 10,
+      "Path": "//Document/P[52]",
+      "Text": "Chu, K.K.A. and Chapleau, R. (2010). Augmenting Transit Trip Characterization and Travel Behavior Comprehension. Journal of Transportation Research Board 2183, pp. 29-40. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625
+      }
+    },
+    {
+      "Bounds": [
+        72.00172424316406,
+        107.26692199707031,
+        445.20892333984375,
+        129.98724365234375
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 252,
+      "Page": 10,
+      "Path": "//Document/P[53]",
+      "Text": "Jang, W. (2010) Travel Time and Transfer Analysis Using Transit Smart Card Data. Journal of Transportation Research Board 2144, pp. 142-149. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.75
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        713.1420135498047,
+        526.2866821289062,
+        761.0556182861328
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 253,
+      "Page": 11,
+      "Path": "//Document/P[54]",
+      "Text": "Li, D. and Lin, Y. and Zhao, X. and Song, H. and Zou, N. (2011) Estimating a transit passenger trip origin-destination matrix using automatic fare collection system. Proceedings of the 16th international conference on Database systems for advanced applications, pp. 502-513. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        687.8273010253906,
+        481.0602111816406,
+        697.8295440673828
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 254,
+      "Page": 11,
+      "Path": "//Document/P[55]",
+      "Text": "Land Transportation Authority (2009) Household Interview Travel Survey 2008. Singapore. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.75
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        649.9159393310547,
+        466.06459045410156,
+        672.5148162841797
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 255,
+      "Page": 11,
+      "Path": "//Document/P[56]",
+      "Text": "LTA Academy Singapore (2011) Singapore Land Transport Statistics as at the end 2010. JOURNEYS 6, pp.64-65. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.125
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        624.6012268066406,
+        524.4981994628906,
+        634.6034545898438
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 256,
+      "Page": 11,
+      "Path": "//Document/P[57]",
+      "Text": "MATSim-T (2011) Multi Agent Transportation Simulation Toolkit, webpage, http://www.matsim.org. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 13.25,
+        "SpaceAfter": 12.75
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        574.0932159423828,
+        519.79736328125,
+        609.2887420654297
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 257,
+      "Page": 11,
+      "Path": "//Document/P[58]",
+      "Text": "Munizaga, M. and Palma, C. and Fischer, D. (2011) Estimation of a Disaggregate Multimodal Public Transport OD Matrix from Passive Smart Card Data from Santiago, Chile. Transportation Research Board Annual Meeting 2011 11-0430. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        523.4306640625,
+        525.5690765380859,
+        558.7476196289062
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 258,
+      "Page": 11,
+      "Path": "//Document/P[59]",
+      "Text": "Páez, A. and and Trépanier, M. and Morency, C. (2011) Geodemographic analysis and the identification of potential business partnerships enabled by transit smart cards. Transportation Research Part A: Policy and Practice 45, pp. 640-652. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.75
+      }
+    },
+    {
+      "Bounds": [
+        72.03483581542969,
+        485.51930236816406,
+        526.2325897216797,
+        508.11817932128906
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 259,
+      "Page": 11,
+      "Path": "//Document/P[60]",
+      "Text": "Park, J.-Y. and Kim, D.-J. and Lim, Y. (2008) Use of Smart Card Data to Define Public Transit Use in Seoul, South Korea. Journal of Transportation Research Board 2063, pp. 3-9. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.625,
+        "SpaceAfter": 12.625
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        447.4864959716797,
+        526.1751708984375,
+        470.2068176269531
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 260,
+      "Page": 11,
+      "Path": "//Document/P[61]",
+      "Text": "Pelletier, M.-P. and Trépanier, M. and Morerncy, C. (2011) Smart card data use in public transit: A literature review. Transportation Research Part C: Emerging Technologies 19, pp. 557-568. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.75,
+        "SpaceAfter": 12.5
+      }
+    },
+    {
+      "Bounds": [
+        72.0238037109375,
+        409.56410217285156,
+        526.2314758300781,
+        435.7951354980469
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 261,
+      "Page": 11,
+      "Path": "//Document/P[62]",
+      "Text": "Prakasam, S. (2008) The Evolution of e-payments in Public Transport – Singapore’s Experience. Japan Railway & Transport Review 50, pp. 36-39. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.75,
+        "SpaceAfter": 12.625
+      }
+    },
+    {
+      "Bounds": [
+        72.03483581542969,
+        371.61961364746094,
+        521.2082824707031,
+        394.24058532714844
+      ],
+      "Font": {
+        "alt_family_name": "Times",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "Times",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "QNSJEP+Times-Roman",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 262,
+      "Page": 11,
+      "Path": "//Document/P[63]",
+      "Text": "Public Transport Council, Singapore (2010) , webpage, http://www.ptc.gov.sg/_files/Fare_revision_2010_news_release.pdf, accessed on 19.07.2011. ",
+      "TextSize": 11.039993286132812,
+      "attributes": {
+        "LineHeight": 12.75
+      }
+    }
+  ],
+  "pages": [
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.2750244140625,
+          841.8889770507812
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.280029296875,
+          841.8900146484375
+        ]
+      },
+      "height": 841.8889770507812,
+      "is_scanned": false,
+      "page_number": 0,
+      "rotation": 0,
+      "width": 595.2750244140625
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 1,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 2,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 3,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 4,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 5,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 6,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 7,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 8,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 9,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 10,
+      "rotation": 0,
+      "width": 595.3200073242188
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          595.3200073242188,
+          841.9199829101562
+        ]
+      },
+      "height": 841.9199829101562,
+      "is_scanned": false,
+      "page_number": 11,
+      "rotation": 0,
+      "width": 595.3200073242188
+    }
+  ]
+}
