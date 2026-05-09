@@ -8,7 +8,6 @@ content belongs there. When a heading is detected in a PDF, it is scored
 against all anchors across all buckets — the bucket with the highest
 similarity wins, provided it clears the MATCH_THRESHOLD.
 
-Tuning tips:
   - MATCH_THRESHOLD: lower (e.g. 0.25) = more forgiving, fewer misc sections.
     Raise (e.g. 0.5) if unrelated headings are being misclassified.
   - Add anchors freely — more anchors = better coverage, no ordering needed.
