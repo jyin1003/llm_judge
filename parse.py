@@ -355,10 +355,13 @@ def process_path(target: Path, output_dir: Path):
 def process_single(pdf_path: Path, output_dir: Path):
     print(f"Parsing: {pdf_path.name} ...", end=" ", flush=True)
     result = parse_pdf(pdf_path)
-    out_path = output_dir / (pdf_path.stem + ".json")
+    words = re.findall(r"[a-zA-Z0-9]+", pdf_path.stem.lower())
+    output_name = "_".join(words[:5])
+    print("output name:", output_name)
+    out_path = output_dir / f"{output_name}.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
-
+    
     warnings = result.get("parse_warnings", [])
     n_sections = result.get("sections_detected", 0)
     status = "⚠ " + "; ".join(warnings) if warnings else "✓"
