@@ -11,14 +11,34 @@ python run.py score  pdf_output/  # score all extracted JSONs
 python run.py all   pdfs/
 ```
 
+## Repo Structure
+```
+llm_judge/
+├── pdf_output/         # structured JSONs of relevant PDF sections
+├── pdf_raw_output/     # Adobe Extract API output
+├── pdfs/               # sourcePDFs
+├── score_output/       # LLM Judge output
+├── .env
+├── config.py
+├── extract_pdf.py
+├── parse.py
+├── prompts.py
+├── README.md
+├── requirements.txt
+├── run.py
+└── score.py
+```
+
 ## Files
-`parse.py` — PDF → structured JSON. The heading detector uses two independent signals: keyword matching (your full list, longest-first) and font size (only fires at 1.6× median, conservatively). The key bug fixed was that data cleaning and data-processing pipeline were being caught by the bare data catch-all before reaching the methods entries — fixed by ordering specific entries before the catch-all in BUCKET_MAP.
+`extract_pdf.py` - PDF → PDF elements JSON. The Adobe Extract API extract text and PDF element structure. *Elements*: Ordered list of semantic elements (like headings, paragraphs, tables, figures) found in the document, on the basis of position in the structure tree of the document. *Path*: The Path describes the location of elements in the structure tree including the element type and the instance number. 
 
-`prompts.py` — All rubric logic lives here: four dimension definitions, scoring anchors, guiding questions, and the prompt builder that selects the most relevant bucket text per dimension.
+`parse.py` - PDF elements JSON → structured JSON. Consumes the Adobe Extract API output, identifies relevant sections (e.g., abstract, data_description, methods, limitations), and maps into the four logical buckets (abstract, data_description, methods, limitations).
 
-`score.py` — Calls Gemini 1.5 Flash twice per dimension (temp 0 + temp 0.3), flags divergent scores, handles rate limiting with retry/backoff.
+`prompts.py` - All rubric logic lives here: four dimension definitions, scoring anchors, guiding questions, and the prompt builder that selects the most relevant bucket text per dimension.
 
-`run.py` — Entry point with three modes.
+`score.py` - Calls Gemini 1.5 Flash twice per dimension (temp 0 + temp 0.3), flags divergent scores, handles rate limiting with retry/backoff.
+
+`run.py` - Entry point with three modes.
 
 ## Flow
 ```
@@ -42,6 +62,6 @@ run.py
 To be able to detect relevant headings to extract sections, we use a weighted fuzzy scoring per bucket. - For each detected heading, we compute a similarity score against every keyword in each bucket's anchor list, take the best match per bucket and assign to whichever bucket wins. A configurable threshold can be lowered if if real sections are being lost, allowing us to control whether headings that don't resemble any anchor well enough will fall through to misc rather than being forced into the closest bucket.
 
 The **similarity metric** will be a combination of:
-- Jaccard token overlap (40%) — content words only (stopwords stripped), so "Study Design and Analytical Approach" matching "analytical approach" isn't diluted by "and/the/of"
-- Substring containment (45%) — if the anchor appears inside the heading or vice versa, score by the proportional length coverage. This is the strongest signal, which is why exact anchors score 1.0
-- Prefix bonus (15%) — small nudge when one starts with the other
+- Jaccard token overlap (40%) - content words only (stopwords stripped), so "Study Design and Analytical Approach" matching "analytical approach" isn't diluted by "and/the/of"
+- Substring containment (45%) - if the anchor appears inside the heading or vice versa, score by the proportional length coverage. This is the strongest signal, which is why exact anchors score 1.0
+- Prefix bonus (15%) - small nudge when one starts with the other
