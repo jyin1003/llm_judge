@@ -35,3 +35,11 @@ run.py
 4.  map raw sections into the four logical buckets (abstract, data_description, methods, limitations) using a fixed mapping table
 5. Any text before the first detected heading goes into a preamble field (often contains the actual abstract even without a heading)
 6. Sections that don't map to any bucket are kept in a misc field so nothing is discarded
+
+## Fuzzy Matching
+To be able to detect relevant headings to extract sections, we use a weighted fuzzy scoring per bucket. - For each detected heading, we compute a similarity score against every keyword in each bucket's anchor list, take the best match per bucket and assign to whichever bucket wins. A configurable threshold can be lowered if if real sections are being lost, allowing us to control whether headings that don't resemble any anchor well enough will fall through to misc rather than being forced into the closest bucket.
+
+The **similarity metric** will be a combination of:
+- Jaccard token overlap (40%) — content words only (stopwords stripped), so "Study Design and Analytical Approach" matching "analytical approach" isn't diluted by "and/the/of"
+- Substring containment (45%) — if the anchor appears inside the heading or vice versa, score by the proportional length coverage. This is the strongest signal, which is why exact anchors score 1.0
+- Prefix bonus (15%) — small nudge when one starts with the other

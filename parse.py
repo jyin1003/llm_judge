@@ -12,16 +12,18 @@ Output:
 
 Strategy:
     1. Extract all text spans block-by-block, preserving reading order.
-    2. Detect headings via fuzzy keyword matching against a known list
-       (case-insensitive, normalised whitespace, partial-match friendly).
+    2. Detect headings via keyword matching against a known list
+       (case-insensitive, normalised whitespace) plus font-size signal.
     3. Assign each heading + its body text as a raw section.
-    4. Map raw sections into four logical buckets:
+    4. Map raw sections into four logical buckets using fuzzy similarity
+       scoring against anchor phrases defined in config.py:
          abstract         – research aims, context, study overview
          data_description – dataset schema, provenance, variables
          methods          – cleaning, transformations, preprocessing, analysis
          limitations      – bias, gaps, constraints, transparency issues
     5. Preamble (text before first heading) is preserved separately.
-    6. Unmapped sections go into misc[] so nothing is discarded.
+    6. Headings that score below MATCH_THRESHOLD against all buckets go
+       into misc[] so nothing is discarded.
 """
 
 import json
@@ -31,10 +33,12 @@ from pathlib import Path
 
 import fitz  # pymupdf
 
+from config import BUCKET_ANCHORS, MATCH_THRESHOLD
+
 
 # ── Heading keyword list ──────────────────────────────────────────────────────
-# Each entry is a normalised string. Matching is done after normalising both
-# the keyword and the candidate line (lowercase, collapse whitespace).
+# Used only for deciding whether a line IS a heading.
+# Bucket assignment is handled separately via fuzzy scoring against config.py.
 
 HEADING_KEYWORDS = [
     "abstract",
@@ -103,141 +107,160 @@ HEADING_KEYWORDS = [
     "data-quality issues",
     "data preparation",
     "sensitivity analysis",
+    "background",
+    "related work",
+    "future work",
+    "approach",
+    "pipeline",
+    "implementation",
+    "evaluation",
+    "findings",
+    "corpus",
+    "annotation",
+    "cohort",
+    "survey design",
+    "ethical considerations",
+    "privacy",
+    "fairness",
 ]
 
-# Sort longest-first so more specific phrases match before shorter substrings
+# Sort longest-first so more specific phrases are checked before shorter ones
 HEADING_KEYWORDS_SORTED = sorted(HEADING_KEYWORDS, key=len, reverse=True)
 
 
-# ── Bucket mapping ────────────────────────────────────────────────────────────
-# Maps normalised heading text → logical bucket name.
-# Uses startswith / substring matching (checked in order).
-
-BUCKET_MAP = [
-    # ── abstract / aims ──
-    ("abstract",                        "abstract"),
-    ("introduction",                    "abstract"),
-    ("study aims",                      "abstract"),
-    ("objectives of this study",        "abstract"),
-    ("perspective",                     "abstract"),
-    ("summary",                         "abstract"),
-    ("open peer review",                "abstract"),
-    ("reviewer reports",                "abstract"),
-
-    # ── data description ──
-    ("data records",                    "data_description"),
-    ("description of data",             "data_description"),
-    ("datasets",                        "data_description"),
-    ("data and methods",                "data_description"),
-    ("variable definitions",            "data_description"),
-    ("construction of samples",         "data_description"),
-    ("acquisition",                     "data_description"),
-    ("usage notes",                     "data_description"),
-    # NOTE: bare "data" catch-all must come AFTER all data-prefixed methods entries below
-
-    # ── methods / transformations ──
-    # data-prefixed entries listed before the bare "data" catch-all in data_description
-    ("data cleaning",                   "methods"),
-    ("data-processing pipeline",        "methods"),
-    ("data preparation",                "methods"),
-    ("data-quality issues",             "methods"),
-    ("basic data-cleaning process",     "methods"),
-    ("methods",                         "methods"),
-    ("methodology",                     "methods"),
-    ("research design and analysis",    "methods"),
-    ("experimental setup",              "methods"),
-    ("experiments",                     "methods"),
-    ("automated approaches",            "methods"),
-    ("outlier detection",               "methods"),
-    ("noise reduction",                 "methods"),
-    ("feature selection",               "methods"),
-    ("natural language processing",     "methods"),
-    ("model validation",                "methods"),
-    ("evaluation of r",                 "methods"),
-    ("evaluation results",              "methods"),
-    ("algorithms",                      "methods"),
-    ("detection",                       "methods"),
-    ("inference",                       "methods"),
-    ("modifications",                   "methods"),
-    ("augmenting",                      "methods"),
-    ("selection criteria",              "methods"),
-    ("pre-processed",                   "methods"),
-    ("sensitive attribute labelling",   "methods"),
-    ("procurement of sensitive",        "methods"),
-    ("data perturbation",               "methods"),
-    ("quantitative analysis",           "methods"),
-    ("analysis at the bed level",       "methods"),
-    ("physician fixed effects",         "methods"),
-    ("correction strategies",           "methods"),
-    ("sensitivity analysis",            "methods"),
-    ("research results",                "methods"),
-    ("results",                         "methods"),
-
-    # bare "data" catch-all — must come after all data-prefixed methods entries above
-    ("data",                            "data_description"),
-
-    # ── limitations ──
-    ("limitations of current",         "limitations"),
-    ("limitations of popular",         "limitations"),
-    ("challenges and limitations",     "limitations"),
-    ("limitations",                    "limitations"),
-    ("challenges",                     "limitations"),
-    ("biases",                         "limitations"),
-    ("transparency",                   "limitations"),
-    ("interpretability",               "limitations"),
-    ("issues",                         "limitations"),
-    ("discussion",                     "limitations"),
-    ("conclusions and recommendations","limitations"),
-    ("conclusion",                     "limitations"),
-]
-
+# ── Text normalisation ────────────────────────────────────────────────────────
 
 def normalise(text: str) -> str:
-    """Lowercase and collapse whitespace."""
-    return re.sub(r"\s+", " ", text).strip().lower()
+    """Lowercase, collapse whitespace, strip punctuation for matching."""
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", " ", text)  # keep hyphens, drop other punctuation
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
+
+# ── Fuzzy bucket assignment ───────────────────────────────────────────────────
+
+def _tokenise(text: str) -> set:
+    """Split normalised text into a set of word tokens."""
+    return set(text.split())
+
+
+# Common stopwords that inflate token overlap without adding meaning
+_STOP = {"and", "of", "the", "in", "to", "a", "an", "for", "with",
+         "on", "at", "by", "from", "this", "that", "are", "is", "be"}
+
+
+def _similarity(heading_norm: str, anchor_norm: str) -> float:
+    """
+    Compute a similarity score in [0, 1] between a heading and an anchor phrase.
+
+    Three signals combined:
+      1. Token overlap (Jaccard on content words): fraction of shared words.
+      2. Containment: whether the anchor is fully contained in the heading
+         or the heading is fully contained in the anchor (substring on
+         normalised strings).
+      3. Prefix bonus: heading starts with the anchor or vice versa.
+
+    Calibration:
+      - A single shared content word scores ~0.3–0.4
+      - Full substring containment scores ~0.8+
+      - Exact match scores 1.0
+    """
+    if heading_norm == anchor_norm:
+        return 1.0
+
+    h_tokens = _tokenise(heading_norm)
+    a_tokens = _tokenise(anchor_norm)
+
+    if not h_tokens or not a_tokens:
+        return 0.0
+
+    h_content = h_tokens - _STOP
+    a_content = a_tokens - _STOP
+
+    # Fall back to all tokens if content-word filtering empties a set
+    h_cmp = h_content if h_content else h_tokens
+    a_cmp = a_content if a_content else a_tokens
+
+    intersection = len(h_cmp & a_cmp)
+    union = len(h_cmp | a_cmp)
+    jaccard = intersection / union if union else 0.0
+
+    containment = 0.0
+    if anchor_norm in heading_norm:
+        containment = len(anchor_norm) / max(len(heading_norm), 1)
+    elif heading_norm in anchor_norm:
+        containment = len(heading_norm) / max(len(anchor_norm), 1)
+
+    prefix = 0.2 if (
+        heading_norm.startswith(anchor_norm) or anchor_norm.startswith(heading_norm)
+    ) else 0.0
+
+    score = 0.4 * jaccard + 0.45 * containment + 0.15 * prefix
+    return min(score, 1.0)
+
+
+def assign_bucket(heading: str) -> tuple:
+    """
+    Score a heading against all bucket anchors and return (bucket, score).
+    Returns ("misc", 0.0) if no bucket clears MATCH_THRESHOLD.
+
+    Takes the best-scoring anchor per bucket so a single strong match
+    is sufficient — no averaging that would dilute specific matches.
+    """
+    heading_norm = normalise(heading)
+    best_bucket = "misc"
+    best_score = 0.0
+
+    for bucket, anchors in BUCKET_ANCHORS.items():
+        bucket_best = max(
+            _similarity(heading_norm, normalise(anchor))
+            for anchor in anchors
+        )
+        if bucket_best > best_score:
+            best_score = bucket_best
+            best_bucket = bucket
+
+    if best_score < MATCH_THRESHOLD:
+        return "misc", best_score
+
+    return best_bucket, best_score
+
+
+# ── Heading detection ─────────────────────────────────────────────────────────
 
 def is_heading(line: str, font_size: float, median_font_size: float) -> bool:
     """
     Return True if this line looks like a section heading.
-    Uses two independent signals — either is sufficient:
-      1. Font size is noticeably larger than the body median.
-      2. Normalised line text matches (or starts with) a keyword.
-    Also enforces a length cap: headings rarely exceed 120 characters.
+    Two independent signals — either is sufficient:
+      1. Normalised line matches a keyword exactly or as a clean prefix.
+      2. Font is dramatically larger (1.6×) AND the line is short.
+    Hard 80-char cap keeps figure captions and body sentences out.
     """
     if not line.strip():
         return False
 
     norm = normalise(line)
 
-    # Hard length cap: real headings are short.
-    # Allow slightly longer for known multi-word headings (e.g. "Table Summary of...")
-    # but cap aggressively for font-size-only detection.
     if len(norm) > 80:
         return False
 
-    # Signal 1: keyword match (any font size) — exact or clean prefix
+    # Signal 1: keyword match
     for kw in HEADING_KEYWORDS_SORTED:
-        if norm == kw or norm.startswith(kw + " ") or norm.startswith(kw + ":"):
+        kw_norm = normalise(kw)
+        if norm == kw_norm or norm.startswith(kw_norm + " ") or norm.startswith(kw_norm + ":"):
             return True
 
-    # Signal 2: clearly oversized font with no keyword — very conservative
-    # Only fire if font is dramatically larger (1.6x) AND line is short
+    # Signal 2: clearly oversized font, short line
     if font_size >= median_font_size * 1.6 and len(norm) <= 50:
         return True
 
     return False
 
 
-def assign_bucket(heading_norm: str) -> str:
-    """Map a normalised heading string to a logical bucket."""
-    for prefix, bucket in BUCKET_MAP:
-        if heading_norm.startswith(prefix) or prefix in heading_norm:
-            return bucket
-    return "misc"
+# ── PDF extraction ────────────────────────────────────────────────────────────
 
-
-def extract_spans(pdf_path: Path) -> list[dict]:
+def extract_spans(pdf_path: Path) -> list:
     """
     Extract all text spans from the PDF preserving reading order.
     Returns a list of dicts: {text, size, page}.
@@ -247,7 +270,7 @@ def extract_spans(pdf_path: Path) -> list[dict]:
     for page_num, page in enumerate(doc, start=1):
         blocks = page.get_text("dict", flags=fitz.TEXT_PRESERVE_WHITESPACE)["blocks"]
         for block in blocks:
-            if block.get("type") != 0:  # skip image blocks
+            if block.get("type") != 0:
                 continue
             for line in block.get("lines", []):
                 line_text_parts = []
@@ -264,7 +287,7 @@ def extract_spans(pdf_path: Path) -> list[dict]:
     return spans
 
 
-def compute_median_size(spans: list[dict]) -> float:
+def compute_median_size(spans: list) -> float:
     """Compute the median font size across all spans (body text baseline)."""
     sizes = sorted(s["size"] for s in spans if s["size"] > 0)
     if not sizes:
@@ -273,17 +296,20 @@ def compute_median_size(spans: list[dict]) -> float:
     return sizes[mid]
 
 
-def segment_into_sections(spans: list[dict]) -> list[dict]:
+# ── Segmentation and bucketing ────────────────────────────────────────────────
+
+def segment_into_sections(spans: list) -> tuple:
     """
     Walk spans in order, detect heading boundaries, and group body text.
-    Returns a list of section dicts: {heading, body, page_start, bucket}.
+    Returns (preamble_lines, sections) where each section dict contains:
+      heading, body, page_start, bucket, match_score
     """
     median_size = compute_median_size(spans)
     sections = []
     current_heading = None
     current_body_lines = []
     current_page = 1
-    preamble_lines = []  # text before any heading is found
+    preamble_lines = []
     in_preamble = True
 
     for span in spans:
@@ -292,16 +318,16 @@ def segment_into_sections(spans: list[dict]) -> list[dict]:
 
         if is_heading(text, size, median_size):
             if in_preamble:
-                # Save everything before the first heading
                 in_preamble = False
             else:
-                # Flush previous section
                 if current_heading is not None:
+                    bucket, score = assign_bucket(current_heading)
                     sections.append({
                         "heading": current_heading,
                         "body": " ".join(current_body_lines).strip(),
                         "page_start": current_page,
-                        "bucket": assign_bucket(normalise(current_heading)),
+                        "bucket": bucket,
+                        "match_score": round(score, 3),
                     })
                 elif current_body_lines:
                     preamble_lines.extend(current_body_lines)
@@ -314,23 +340,24 @@ def segment_into_sections(spans: list[dict]) -> list[dict]:
             else:
                 current_body_lines.append(text)
 
-    # Flush final section
+    # Flush the final section
     if current_heading is not None:
+        bucket, score = assign_bucket(current_heading)
         sections.append({
             "heading": current_heading,
             "body": " ".join(current_body_lines).strip(),
             "page_start": current_page,
-            "bucket": assign_bucket(normalise(current_heading)),
+            "bucket": bucket,
+            "match_score": round(score, 3),
         })
 
     return preamble_lines, sections
 
 
-def merge_into_buckets(preamble_lines: list[str], sections: list[dict]) -> dict:
+def merge_into_buckets(preamble_lines: list, sections: list) -> dict:
     """
-    Combine all sections that share a bucket into one text blob per bucket.
-    Preserves section order within each bucket.
-    Also returns misc[] for unmapped sections and raw_sections[] for full detail.
+    Combine all sections sharing a bucket into one text blob per bucket.
+    Preserves section order. Unmapped sections go into misc[].
     """
     buckets = {
         "abstract": [],
@@ -350,12 +377,11 @@ def merge_into_buckets(preamble_lines: list[str], sections: list[dict]) -> dict:
                 "heading": sec["heading"],
                 "body": sec["body"],
                 "page_start": sec["page_start"],
+                "match_score": sec["match_score"],
             })
 
-    # Join each bucket's sections with a separator
     result = {k: "\n\n".join(v) for k, v in buckets.items()}
 
-    # Preamble heuristic: if abstract bucket is empty, use preamble text
     preamble_text = " ".join(preamble_lines).strip()
     if not result["abstract"] and preamble_text:
         result["abstract"] = preamble_text
@@ -364,7 +390,12 @@ def merge_into_buckets(preamble_lines: list[str], sections: list[dict]) -> dict:
 
     result["misc"] = misc
     result["raw_sections"] = [
-        {"heading": s["heading"], "bucket": s["bucket"], "page_start": s["page_start"]}
+        {
+            "heading": s["heading"],
+            "bucket": s["bucket"],
+            "match_score": s["match_score"],
+            "page_start": s["page_start"],
+        }
         for s in sections
     ]
 
@@ -392,8 +423,8 @@ def parse_pdf(pdf_path: Path) -> dict:
     result["page_count"] = fitz.open(str(pdf_path)).page_count
     result["sections_detected"] = len(sections)
 
-    # Warn if any bucket is empty
-    empty = [k for k in ("abstract", "data_description", "methods", "limitations") if not result.get(k)]
+    empty = [k for k in ("abstract", "data_description", "methods", "limitations")
+             if not result.get(k)]
     if empty:
         result["parse_warnings"] = [f"No content mapped to bucket: {e}" for e in empty]
 
