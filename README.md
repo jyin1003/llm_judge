@@ -51,12 +51,10 @@ run.py
 ```
 
 ## Parsing Strategy
-1. Extract all text block by block, preserving page order
-2. Detect heading boundaries using fuzzy keyword matching against a list (normalised, case-insensitive, partial match)
-3. Assign each detected heading + its following body text as a raw section
-4.  map raw sections into the four logical buckets (abstract, data_description, methods, limitations) using a fixed mapping table
-5. Any text before the first detected heading goes into a preamble field (often contains the actual abstract even without a heading)
-6. Sections that don't map to any bucket are kept in a misc field so nothing is discarded
+1. Extract all text and elements from PDF
+2.  map raw sections into the four logical buckets (abstract, data_description, methods, limitations) using a fixed mapping table
+3. Any text before the first detected heading goes into a preamble field (often contains the actual abstract even without a heading)
+4. Sections that don't map to any bucket are kept in a misc field so nothing is discarded
 
 ## Fuzzy Matching
 To be able to detect relevant headings to extract sections, we use a weighted fuzzy scoring per bucket. - For each detected heading, we compute a similarity score against every keyword in each bucket's anchor list, take the best match per bucket and assign to whichever bucket wins. A configurable threshold can be lowered if if real sections are being lost, allowing us to control whether headings that don't resemble any anchor well enough will fall through to misc rather than being forced into the closest bucket.
