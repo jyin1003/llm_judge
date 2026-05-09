@@ -2,6 +2,8 @@
 
 ## Usage
 ```bash
+python -m venv .venv   # create virtual env
+.venv\Scripts\Activate.ps1  # activate virutal env
 pip install -r requirements.txt
 python run.py parse  pdfs/    # extract text from all PDFs
 python run.py score  pdf_output/  # score all extracted JSONs
