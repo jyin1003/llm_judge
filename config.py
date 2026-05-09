@@ -16,12 +16,12 @@ similarity wins, provided it clears the MATCH_THRESHOLD.
     produce more discriminating matches.
 """
 
-# ── Similarity threshold ──────────────────────────────────────────────────────
+# SIMILARITY THRESHOLD
 # Headings scoring below this against all buckets are assigned to misc.
 # Range: 0.0 (accept everything) to 1.0 (exact match only).
 MATCH_THRESHOLD = 0.35
 
-# ── Bucket anchor lists ───────────────────────────────────────────────────────
+# BUCKET ANCHOR LISTS
 
 BUCKET_ANCHORS = {
     "abstract": [
@@ -196,3 +196,91 @@ BUCKET_ANCHORS = {
         "missing data limitations",
     ],
 }
+
+# Used only for deciding whether a line IS a heading.
+HEADING_KEYWORDS = [
+    "abstract",
+    "introduction",
+    "results",
+    "conclusion",
+    "conclusions and recommendations",
+    "data",
+    "methods",
+    "methodology",
+    "challenges",
+    "study aims",
+    "objectives of this study",
+    "key functionalities",
+    "automated approaches to handling missing data",
+    "outlier detection and removal",
+    "noise reduction",
+    "feature selection and dimensionality reduction",
+    "natural language processing in healthcare data preprocessing",
+    "limitations of current ai models",
+    "challenges and limitations of ai in data preprocessing",
+    "interpretability and transparency of ai algorithms",
+    "quantitative analysis",
+    "sensitive attribute labelling",
+    "procurement of sensitive attributes",
+    "data perturbation",
+    "summary",
+    "limitations of popular algorithmic fairness datasets",
+    "transparency",
+    "acquisition",
+    "research design and analysis",
+    "algorithms",
+    "biases",
+    "research results and interpretation",
+    "construction of samples",
+    "modifications",
+    "augmenting",
+    "model validation",
+    "evaluation of r²",
+    "data records",
+    "description of data",
+    "usage notes",
+    "open peer review",
+    "reviewer reports",
+    "data and methods",
+    "selection criteria",
+    "basic data-cleaning process",
+    "pre-processed before sentiment analysis",
+    "evaluation results of classifiers",
+    "variable definitions",
+    "analysis at the bed level",
+    "physician fixed effects",
+    "table summary of robustness tests for alternative explanations",
+    "datasets",
+    "experiments",
+    "data cleaning",
+    "experimental setup",
+    "issues",
+    "correction strategies",
+    "discussion",
+    "limitations",
+    "perspective",
+    "data-processing pipeline",
+    "detection",
+    "inference",
+    "data-quality issues",
+    "data preparation",
+    "sensitivity analysis",
+    "background",
+    "related work",
+    "future work",
+    "approach",
+    "pipeline",
+    "implementation",
+    "evaluation",
+    "findings",
+    "corpus",
+    "annotation",
+    "cohort",
+    "survey design",
+    "ethical considerations",
+    "privacy",
+    "fairness",
+]
+
+# Sort longest-first so more specific phrases are checked before shorter ones
+HEADING_KEYWORDS_SORTED = sorted(HEADING_KEYWORDS, key=len, reverse=True)

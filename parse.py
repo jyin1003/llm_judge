@@ -13,122 +13,27 @@ Output:
 Strategy:
     1. Extract all text spans block-by-block, preserving reading order.
     2. Detect headings via keyword matching against a known list
-       (case-insensitive, normalised whitespace) plus font-size signal.
+        (case-insensitive, normalised whitespace) plus font-size signal.
     3. Assign each heading + its body text as a raw section.
     4. Map raw sections into four logical buckets using fuzzy similarity
-       scoring against anchor phrases defined in config.py:
-         abstract         – research aims, context, study overview
-         data_description – dataset schema, provenance, variables
-         methods          – cleaning, transformations, preprocessing, analysis
-         limitations      – bias, gaps, constraints, transparency issues
+        scoring against anchor phrases defined in config.py:
+            abstract         - research aims, context, study overview
+            data_description - dataset schema, provenance, variables
+            methods          - cleaning, transformations, preprocessing, analysis
+            limitations      - bias, gaps, constraints, transparency issues
     5. Preamble (text before first heading) is preserved separately.
     6. Headings that score below MATCH_THRESHOLD against all buckets go
-       into misc[] so nothing is discarded.
+        into misc[] so nothing is discarded.
 """
 
-import json
-import re
-import sys
+import json, re, sys
 from pathlib import Path
 
 import fitz  # pymupdf
 
-from config import BUCKET_ANCHORS, MATCH_THRESHOLD
+from config import BUCKET_ANCHORS, MATCH_THRESHOLD, HEADING_KEYWORDS_SORTED
 
-
-# ── Heading keyword list ──────────────────────────────────────────────────────
-# Used only for deciding whether a line IS a heading.
-# Bucket assignment is handled separately via fuzzy scoring against config.py.
-
-HEADING_KEYWORDS = [
-    "abstract",
-    "introduction",
-    "results",
-    "conclusion",
-    "conclusions and recommendations",
-    "data",
-    "methods",
-    "methodology",
-    "challenges",
-    "study aims",
-    "objectives of this study",
-    "key functionalities",
-    "automated approaches to handling missing data",
-    "outlier detection and removal",
-    "noise reduction",
-    "feature selection and dimensionality reduction",
-    "natural language processing in healthcare data preprocessing",
-    "limitations of current ai models",
-    "challenges and limitations of ai in data preprocessing",
-    "interpretability and transparency of ai algorithms",
-    "quantitative analysis",
-    "sensitive attribute labelling",
-    "procurement of sensitive attributes",
-    "data perturbation",
-    "summary",
-    "limitations of popular algorithmic fairness datasets",
-    "transparency",
-    "acquisition",
-    "research design and analysis",
-    "algorithms",
-    "biases",
-    "research results and interpretation",
-    "construction of samples",
-    "modifications",
-    "augmenting",
-    "model validation",
-    "evaluation of r²",
-    "data records",
-    "description of data",
-    "usage notes",
-    "open peer review",
-    "reviewer reports",
-    "data and methods",
-    "selection criteria",
-    "basic data-cleaning process",
-    "pre-processed before sentiment analysis",
-    "evaluation results of classifiers",
-    "variable definitions",
-    "analysis at the bed level",
-    "physician fixed effects",
-    "table summary of robustness tests for alternative explanations",
-    "datasets",
-    "experiments",
-    "data cleaning",
-    "experimental setup",
-    "issues",
-    "correction strategies",
-    "discussion",
-    "limitations",
-    "perspective",
-    "data-processing pipeline",
-    "detection",
-    "inference",
-    "data-quality issues",
-    "data preparation",
-    "sensitivity analysis",
-    "background",
-    "related work",
-    "future work",
-    "approach",
-    "pipeline",
-    "implementation",
-    "evaluation",
-    "findings",
-    "corpus",
-    "annotation",
-    "cohort",
-    "survey design",
-    "ethical considerations",
-    "privacy",
-    "fairness",
-]
-
-# Sort longest-first so more specific phrases are checked before shorter ones
-HEADING_KEYWORDS_SORTED = sorted(HEADING_KEYWORDS, key=len, reverse=True)
-
-
-# ── Text normalisation ────────────────────────────────────────────────────────
+# Text normalisation
 
 def normalise(text: str) -> str:
     """Lowercase, collapse whitespace, strip punctuation for matching."""
@@ -138,7 +43,7 @@ def normalise(text: str) -> str:
     return text
 
 
-# ── Fuzzy bucket assignment ───────────────────────────────────────────────────
+# Fuzzy bucket assignment
 
 def _tokenise(text: str) -> set:
     """Split normalised text into a set of word tokens."""
@@ -147,7 +52,7 @@ def _tokenise(text: str) -> set:
 
 # Common stopwords that inflate token overlap without adding meaning
 _STOP = {"and", "of", "the", "in", "to", "a", "an", "for", "with",
-         "on", "at", "by", "from", "this", "that", "are", "is", "be"}
+            "on", "at", "by", "from", "this", "that", "are", "is", "be"}
 
 
 def _similarity(heading_norm: str, anchor_norm: str) -> float:
@@ -155,16 +60,16 @@ def _similarity(heading_norm: str, anchor_norm: str) -> float:
     Compute a similarity score in [0, 1] between a heading and an anchor phrase.
 
     Three signals combined:
-      1. Token overlap (Jaccard on content words): fraction of shared words.
-      2. Containment: whether the anchor is fully contained in the heading
-         or the heading is fully contained in the anchor (substring on
-         normalised strings).
-      3. Prefix bonus: heading starts with the anchor or vice versa.
+        1. Token overlap (Jaccard on content words): fraction of shared words.
+        2. Containment: whether the anchor is fully contained in the heading
+            or the heading is fully contained in the anchor (substring on
+            normalised strings).
+        3. Prefix bonus: heading starts with the anchor or vice versa.
 
     Calibration:
-      - A single shared content word scores ~0.3–0.4
-      - Full substring containment scores ~0.8+
-      - Exact match scores 1.0
+        - A single shared content word scores ~0.3-0.4
+        - Full substring containment scores ~0.8+
+        - Exact match scores 1.0
     """
     if heading_norm == anchor_norm:
         return 1.0
@@ -227,14 +132,14 @@ def assign_bucket(heading: str) -> tuple:
     return best_bucket, best_score
 
 
-# ── Heading detection ─────────────────────────────────────────────────────────
+# Heading detection
 
 def is_heading(line: str, font_size: float, median_font_size: float) -> bool:
     """
     Return True if this line looks like a section heading.
     Two independent signals — either is sufficient:
-      1. Normalised line matches a keyword exactly or as a clean prefix.
-      2. Font is dramatically larger (1.6×) AND the line is short.
+        1. Normalised line matches a keyword exactly or as a clean prefix.
+        2. Font is dramatically larger (1.6x) AND the line is short.
     Hard 80-char cap keeps figure captions and body sentences out.
     """
     if not line.strip():
@@ -258,7 +163,7 @@ def is_heading(line: str, font_size: float, median_font_size: float) -> bool:
     return False
 
 
-# ── PDF extraction ────────────────────────────────────────────────────────────
+# PDF extraction
 
 def extract_spans(pdf_path: Path) -> list:
     """
@@ -296,13 +201,13 @@ def compute_median_size(spans: list) -> float:
     return sizes[mid]
 
 
-# ── Segmentation and bucketing ────────────────────────────────────────────────
+# Segmentation and bucketing
 
 def segment_into_sections(spans: list) -> tuple:
     """
     Walk spans in order, detect heading boundaries, and group body text.
     Returns (preamble_lines, sections) where each section dict contains:
-      heading, body, page_start, bucket, match_score
+        heading, body, page_start, bucket, match_score
     """
     median_size = compute_median_size(spans)
     sections = []
